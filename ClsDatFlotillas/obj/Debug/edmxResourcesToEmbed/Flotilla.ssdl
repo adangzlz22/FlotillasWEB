@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbFlotillasCamionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bitacora">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idChofer" Type="int" />
+    <Property Name="placa" Type="varchar" MaxLength="50" />
+    <Property Name="idEstado" Type="int" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="fechaInicio" Type="datetime" />
+    <Property Name="fechaFin" Type="datetime" />
+    <Property Name="longitud" Type="varchar(max)" />
+    <Property Name="latitud" Type="varchar(max)" />
+    <Property Name="nombreUbicacion" Type="varchar(max)" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="CatChoferes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="users" Type="varchar(max)" />
+    <Property Name="pass" Type="varchar(max)" />
+    <Property Name="nombre" Type="varchar(max)" />
+    <Property Name="apeidoP" Type="varchar(max)" />
+    <Property Name="apeidoM" Type="varchar(max)" />
+    <Property Name="idEmpresa" Type="int" />
+    <Property Name="placa" Type="varchar(max)" />
+    <Property Name="remolque1" Type="varchar(max)" />
+    <Property Name="remolque2" Type="varchar(max)" />
+    <Property Name="enviarA" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="CatEmpresas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Empresa" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="CatEstados">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EstadoAccion" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="CatUsuarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="users" Type="varchar(max)" />
+    <Property Name="pass" Type="varchar(max)" />
+    <Property Name="correo" Type="varchar(max)" />
+    <Property Name="nombre" Type="varchar(max)" />
+    <Property Name="apeidoPaterno" Type="varchar(max)" />
+    <Property Name="apeidoMaterno" Type="varchar(max)" />
+    <Property Name="idNivel" Type="int" />
+    <Property Name="idEmpresa" Type="int" />
+    <Property Name="userSmbTrack" Type="varchar(max)" />
+    <Property Name="passSmbTrack" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Dispositivos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Dispositivo" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="EnvioCorreos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FrenosEstacionamiento" Type="varchar(max)" />
+    <Property Name="FrenosMantenimiento" Type="varchar(max)" />
+    <Property Name="DispositivosAcoplamiento" Type="varchar(max)" />
+    <Property Name="EquipoDeUrgencia" Type="varchar(max)" />
+    <Property Name="Bocina" Type="varchar(max)" />
+    <Property Name="LucesYReflectores" Type="varchar(max)" />
+    <Property Name="Retrovisores" Type="varchar(max)" />
+    <Property Name="Direccion" Type="varchar(max)" />
+    <Property Name="Neumaticos" Type="varchar(max)" />
+    <Property Name="RuedasYLlantas" Type="varchar(max)" />
+    <Property Name="Limpiaparabrisas" Type="varchar(max)" />
+    <Property Name="Otro" Type="varchar(max)" />
+    <Property Name="UbicacionDeInspeccion" Type="varchar(max)" />
+    <Property Name="Observaciones" Type="varchar(max)" />
+    <Property Name="NoHayDefectos" Type="bit" />
+  </EntityType>
+  <EntityType Name="estatusActivo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idChofer" Type="int" />
+    <Property Name="idEstatus" Type="int" />
+    <Property Name="fechaInicio" Type="datetime" />
+    <Property Name="fechaFin" Type="datetime" />
+  </EntityType>
+  <EntityType Name="reglasEstados">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="reglas" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="sessionActiva">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idEmpresa" Type="int" />
+    <Property Name="accessToken" Type="varchar(max)" />
+    <Property Name="correo" Type="varchar(max)" />
+    <Property Name="idUser" Type="varchar(max)" />
+    <Property Name="keyUser" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="SessionAppActiva">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idChofer" Type="int" />
+    <Property Name="placa" Type="varchar" MaxLength="50" />
+    <Property Name="fechaInicio" Type="datetime" />
+    <Property Name="fechaFin" Type="datetime" />
+    <Property Name="inicioSession" Type="bit" />
+  </EntityType>
+  <Function Name="spObtenerExtraccionEvents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="date" Mode="In" />
+    <Parameter Name="idChofer" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spObtenerExtraccionInformacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="date" Mode="In" />
+    <Parameter Name="idChofer" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spObtenerUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="dbFlotillasCamionModelStoreContainer">
+    <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatChoferes" EntityType="Self.CatChoferes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatEmpresas" EntityType="Self.CatEmpresas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatEstados" EntityType="Self.CatEstados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatUsuarios" EntityType="Self.CatUsuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dispositivos" EntityType="Self.Dispositivos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EnvioCorreos" EntityType="Self.EnvioCorreos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="estatusActivo" EntityType="Self.estatusActivo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="reglasEstados" EntityType="Self.reglasEstados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sessionActiva" EntityType="Self.sessionActiva" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SessionAppActiva" EntityType="Self.SessionAppActiva" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

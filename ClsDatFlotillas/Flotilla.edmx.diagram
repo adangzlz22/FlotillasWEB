@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="439dacfb50084e2981c96b22fd9d36ca" Name="Diagram1">
+        <EntityTypeShape EntityType="dbFlotillasCamionModel.CatEmpresas" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="dbFlotillasCamionModel.CatEstados" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="dbFlotillasCamionModel.CatUsuarios" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="dbFlotillasCamionModel.Dispositivos" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="dbFlotillasCamionModel.EnvioCorreos" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="dbFlotillasCamionModel.reglasEstados" Width="1.5" PointX="4.75" PointY="6.75" />
+        <EntityTypeShape EntityType="dbFlotillasCamionModel.sessionActiva" Width="1.5" PointX="7.375" PointY="5.75" />
+        <EntityTypeShape EntityType="dbFlotillasCamionModel.Bitacora" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="dbFlotillasCamionModel.CatChoferes" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="dbFlotillasCamionModel.estatusActivo" Width="1.5" PointX="7.375" PointY="8.75" />
+        <EntityTypeShape EntityType="dbFlotillasCamionModel.SessionAppActiva" Width="1.5" PointX="9.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

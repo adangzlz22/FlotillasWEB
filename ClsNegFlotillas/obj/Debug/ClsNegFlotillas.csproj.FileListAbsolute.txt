@@ -1,0 +1,17 @@
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\bin\Debug\ClsNegFlotillas.dll.config
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\bin\Debug\ClsNegFlotillas.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\bin\Debug\ClsNegFlotillas.pdb
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\bin\Debug\ClsDatFlotillas.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\bin\Debug\ClsModFlotillas.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\bin\Debug\EntityFramework.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\bin\Debug\ClsDatFlotillas.pdb
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\bin\Debug\ClsDatFlotillas.dll.config
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\bin\Debug\ClsModFlotillas.pdb
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\bin\Debug\EntityFramework.xml
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\obj\Debug\ClsNegFlotillas.csprojAssemblyReference.cache
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\obj\Debug\ClsNegFlotillas.csproj.CoreCompileInputs.cache
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\obj\Debug\ClsNegFlotillas.csproj.CopyComplete
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\obj\Debug\ClsNegFlotillas.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsNegFlotillas\obj\Debug\ClsNegFlotillas.pdb

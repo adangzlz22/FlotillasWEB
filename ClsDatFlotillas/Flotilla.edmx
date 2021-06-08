@@ -1,0 +1,565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbFlotillasCamionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idChofer" Type="int" />
+          <Property Name="placa" Type="varchar" MaxLength="50" />
+          <Property Name="idEstado" Type="int" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="fechaInicio" Type="datetime" />
+          <Property Name="fechaFin" Type="datetime" />
+          <Property Name="longitud" Type="varchar(max)" />
+          <Property Name="latitud" Type="varchar(max)" />
+          <Property Name="nombreUbicacion" Type="varchar(max)" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="CatChoferes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="users" Type="varchar(max)" />
+          <Property Name="pass" Type="varchar(max)" />
+          <Property Name="nombre" Type="varchar(max)" />
+          <Property Name="apeidoP" Type="varchar(max)" />
+          <Property Name="apeidoM" Type="varchar(max)" />
+          <Property Name="idEmpresa" Type="int" />
+          <Property Name="placa" Type="varchar(max)" />
+          <Property Name="remolque1" Type="varchar(max)" />
+          <Property Name="remolque2" Type="varchar(max)" />
+          <Property Name="enviarA" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="CatEmpresas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Empresa" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="CatEstados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EstadoAccion" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="CatUsuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="users" Type="varchar(max)" />
+          <Property Name="pass" Type="varchar(max)" />
+          <Property Name="correo" Type="varchar(max)" />
+          <Property Name="nombre" Type="varchar(max)" />
+          <Property Name="apeidoPaterno" Type="varchar(max)" />
+          <Property Name="apeidoMaterno" Type="varchar(max)" />
+          <Property Name="idNivel" Type="int" />
+          <Property Name="idEmpresa" Type="int" />
+          <Property Name="userSmbTrack" Type="varchar(max)" />
+          <Property Name="passSmbTrack" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Dispositivos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dispositivo" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="EnvioCorreos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FrenosEstacionamiento" Type="varchar(max)" />
+          <Property Name="FrenosMantenimiento" Type="varchar(max)" />
+          <Property Name="DispositivosAcoplamiento" Type="varchar(max)" />
+          <Property Name="EquipoDeUrgencia" Type="varchar(max)" />
+          <Property Name="Bocina" Type="varchar(max)" />
+          <Property Name="LucesYReflectores" Type="varchar(max)" />
+          <Property Name="Retrovisores" Type="varchar(max)" />
+          <Property Name="Direccion" Type="varchar(max)" />
+          <Property Name="Neumaticos" Type="varchar(max)" />
+          <Property Name="RuedasYLlantas" Type="varchar(max)" />
+          <Property Name="Limpiaparabrisas" Type="varchar(max)" />
+          <Property Name="Otro" Type="varchar(max)" />
+          <Property Name="UbicacionDeInspeccion" Type="varchar(max)" />
+          <Property Name="Observaciones" Type="varchar(max)" />
+          <Property Name="NoHayDefectos" Type="bit" />
+        </EntityType>
+        <EntityType Name="estatusActivo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idChofer" Type="int" />
+          <Property Name="idEstatus" Type="int" />
+          <Property Name="fechaInicio" Type="datetime" />
+          <Property Name="fechaFin" Type="datetime" />
+        </EntityType>
+        <EntityType Name="reglasEstados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="reglas" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="sessionActiva">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idEmpresa" Type="int" />
+          <Property Name="accessToken" Type="varchar(max)" />
+          <Property Name="correo" Type="varchar(max)" />
+          <Property Name="idUser" Type="varchar(max)" />
+          <Property Name="keyUser" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="SessionAppActiva">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idChofer" Type="int" />
+          <Property Name="placa" Type="varchar" MaxLength="50" />
+          <Property Name="fechaInicio" Type="datetime" />
+          <Property Name="fechaFin" Type="datetime" />
+          <Property Name="inicioSession" Type="bit" />
+        </EntityType>
+        <Function Name="spObtenerExtraccionEvents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Fecha" Type="date" Mode="In" />
+          <Parameter Name="idChofer" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spObtenerExtraccionInformacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Fecha" Type="date" Mode="In" />
+          <Parameter Name="idChofer" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spObtenerUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="dbFlotillasCamionModelStoreContainer">
+          <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatChoferes" EntityType="Self.CatChoferes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatEmpresas" EntityType="Self.CatEmpresas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatEstados" EntityType="Self.CatEstados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatUsuarios" EntityType="Self.CatUsuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dispositivos" EntityType="Self.Dispositivos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EnvioCorreos" EntityType="Self.EnvioCorreos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estatusActivo" EntityType="Self.estatusActivo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reglasEstados" EntityType="Self.reglasEstados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sessionActiva" EntityType="Self.sessionActiva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SessionAppActiva" EntityType="Self.SessionAppActiva" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbFlotillasCamionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbFlotillasCamionEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="spObtenerUsuario" ReturnType="Collection(dbFlotillasCamionModel.spObtenerUsuario_Result)" />
+          <EntitySet Name="CatEmpresas" EntityType="dbFlotillasCamionModel.CatEmpresas" />
+          <EntitySet Name="CatEstados" EntityType="dbFlotillasCamionModel.CatEstados" />
+          <EntitySet Name="CatUsuarios" EntityType="dbFlotillasCamionModel.CatUsuarios" />
+          <EntitySet Name="Dispositivos" EntityType="dbFlotillasCamionModel.Dispositivos" />
+          <EntitySet Name="EnvioCorreos" EntityType="dbFlotillasCamionModel.EnvioCorreos" />
+          <EntitySet Name="reglasEstados" EntityType="dbFlotillasCamionModel.reglasEstados" />
+          <EntitySet Name="sessionActiva" EntityType="dbFlotillasCamionModel.sessionActiva" />
+          <FunctionImport Name="spObtenerExtraccionEvents" ReturnType="Collection(dbFlotillasCamionModel.spObtenerExtraccionEvents_Result)">
+            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="idChofer" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Bitacora" EntityType="dbFlotillasCamionModel.Bitacora" />
+          <FunctionImport Name="spObtenerExtraccionInformacion" ReturnType="Collection(dbFlotillasCamionModel.spObtenerExtraccionInformacion_Result)">
+            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="idChofer" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="CatChoferes" EntityType="dbFlotillasCamionModel.CatChoferes" />
+          <EntitySet Name="estatusActivo" EntityType="dbFlotillasCamionModel.estatusActivo" />
+          <EntitySet Name="SessionAppActiva" EntityType="dbFlotillasCamionModel.SessionAppActiva" />
+          </EntityContainer>
+        <ComplexType Name="spObtenerUsuario_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="users" Nullable="true" />
+          <Property Type="String" Name="pass" Nullable="true" />
+          <Property Type="String" Name="correo" Nullable="true" />
+          <Property Type="String" Name="nombre" Nullable="true" />
+          <Property Type="String" Name="apeidoPaterno" Nullable="true" />
+          <Property Type="String" Name="apeidoMaterno" Nullable="true" />
+          <Property Type="Int32" Name="idNivel" Nullable="true" />
+          <Property Type="Int32" Name="idEmpresa" Nullable="true" />
+          <Property Type="String" Name="Empresa" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="CatEmpresas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Empresa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CatEstados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EstadoAccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CatUsuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="users" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="apeidoPaterno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="apeidoMaterno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idNivel" Type="Int32" />
+          <Property Name="idEmpresa" Type="Int32" />
+          <Property Name="userSmbTrack" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="passSmbTrack" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Dispositivos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dispositivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EnvioCorreos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FrenosEstacionamiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FrenosMantenimiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DispositivosAcoplamiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EquipoDeUrgencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Bocina" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LucesYReflectores" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Retrovisores" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Neumaticos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RuedasYLlantas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Limpiaparabrisas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Otro" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UbicacionDeInspeccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NoHayDefectos" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="reglasEstados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="reglas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sessionActiva">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idEmpresa" Type="Int32" />
+          <Property Name="accessToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idUser" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="keyUser" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="spObtenerExtraccionEvents_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="idChofer" Nullable="true" />
+          <Property Type="Int32" Name="idEstado" Nullable="true" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="DateTime" Name="fechaInicio" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="fechaFin" Nullable="true" Precision="23" />
+          <Property Type="String" Name="longitud" Nullable="true" />
+          <Property Type="String" Name="latitud" Nullable="true" />
+          <Property Type="String" Name="nombreUbicacion" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idChofer" Type="Int32" />
+          <Property Name="idEstado" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="fechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="fechaFin" Type="DateTime" Precision="3" />
+          <Property Name="longitud" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="latitud" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="nombreUbicacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="placa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+        </EntityType>
+        <ComplexType Name="spObtenerExtraccionInformacion_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="idChofer" Nullable="true" />
+          <Property Type="Int32" Name="idEstado" Nullable="true" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="DateTime" Name="fechaInicio" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="fechaFin" Nullable="true" Precision="23" />
+          <Property Type="String" Name="longitud" Nullable="true" />
+          <Property Type="String" Name="latitud" Nullable="true" />
+          <Property Type="String" Name="nombreUbicacion" Nullable="true" />
+          <Property Type="String" Name="EstadoAccion" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="CatChoferes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="users" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="apeidoP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="apeidoM" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idEmpresa" Type="Int32" />
+          <Property Name="placa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="remolque1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="remolque2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="enviarA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="estatusActivo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idChofer" Type="Int32" />
+          <Property Name="idEstatus" Type="Int32" />
+          <Property Name="fechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="fechaFin" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SessionAppActiva">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idChofer" Type="Int32" />
+          <Property Name="placa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="fechaFin" Type="DateTime" Precision="3" />
+          <Property Name="inicioSession" Type="Boolean" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbFlotillasCamionModelStoreContainer" CdmEntityContainer="dbFlotillasCamionEntities">
+          <FunctionImportMapping FunctionImportName="spObtenerUsuario" FunctionName="dbFlotillasCamionModel.Store.spObtenerUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbFlotillasCamionModel.spObtenerUsuario_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="users" ColumnName="users" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apeidoPaterno" ColumnName="apeidoPaterno" />
+                <ScalarProperty Name="apeidoMaterno" ColumnName="apeidoMaterno" />
+                <ScalarProperty Name="idNivel" ColumnName="idNivel" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="CatEmpresas">
+            <EntityTypeMapping TypeName="dbFlotillasCamionModel.CatEmpresas">
+              <MappingFragment StoreEntitySet="CatEmpresas">
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatEstados">
+            <EntityTypeMapping TypeName="dbFlotillasCamionModel.CatEstados">
+              <MappingFragment StoreEntitySet="CatEstados">
+                <ScalarProperty Name="EstadoAccion" ColumnName="EstadoAccion" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatUsuarios">
+            <EntityTypeMapping TypeName="dbFlotillasCamionModel.CatUsuarios">
+              <MappingFragment StoreEntitySet="CatUsuarios">
+                <ScalarProperty Name="passSmbTrack" ColumnName="passSmbTrack" />
+                <ScalarProperty Name="userSmbTrack" ColumnName="userSmbTrack" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="idNivel" ColumnName="idNivel" />
+                <ScalarProperty Name="apeidoMaterno" ColumnName="apeidoMaterno" />
+                <ScalarProperty Name="apeidoPaterno" ColumnName="apeidoPaterno" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="users" ColumnName="users" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dispositivos">
+            <EntityTypeMapping TypeName="dbFlotillasCamionModel.Dispositivos">
+              <MappingFragment StoreEntitySet="Dispositivos">
+                <ScalarProperty Name="Dispositivo" ColumnName="Dispositivo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EnvioCorreos">
+            <EntityTypeMapping TypeName="dbFlotillasCamionModel.EnvioCorreos">
+              <MappingFragment StoreEntitySet="EnvioCorreos">
+                <ScalarProperty Name="NoHayDefectos" ColumnName="NoHayDefectos" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="UbicacionDeInspeccion" ColumnName="UbicacionDeInspeccion" />
+                <ScalarProperty Name="Otro" ColumnName="Otro" />
+                <ScalarProperty Name="Limpiaparabrisas" ColumnName="Limpiaparabrisas" />
+                <ScalarProperty Name="RuedasYLlantas" ColumnName="RuedasYLlantas" />
+                <ScalarProperty Name="Neumaticos" ColumnName="Neumaticos" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Retrovisores" ColumnName="Retrovisores" />
+                <ScalarProperty Name="LucesYReflectores" ColumnName="LucesYReflectores" />
+                <ScalarProperty Name="Bocina" ColumnName="Bocina" />
+                <ScalarProperty Name="EquipoDeUrgencia" ColumnName="EquipoDeUrgencia" />
+                <ScalarProperty Name="DispositivosAcoplamiento" ColumnName="DispositivosAcoplamiento" />
+                <ScalarProperty Name="FrenosMantenimiento" ColumnName="FrenosMantenimiento" />
+                <ScalarProperty Name="FrenosEstacionamiento" ColumnName="FrenosEstacionamiento" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reglasEstados">
+            <EntityTypeMapping TypeName="dbFlotillasCamionModel.reglasEstados">
+              <MappingFragment StoreEntitySet="reglasEstados">
+                <ScalarProperty Name="reglas" ColumnName="reglas" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sessionActiva">
+            <EntityTypeMapping TypeName="dbFlotillasCamionModel.sessionActiva">
+              <MappingFragment StoreEntitySet="sessionActiva">
+                <ScalarProperty Name="keyUser" ColumnName="keyUser" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="accessToken" ColumnName="accessToken" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spObtenerExtraccionEvents" FunctionName="dbFlotillasCamionModel.Store.spObtenerExtraccionEvents">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbFlotillasCamionModel.spObtenerExtraccionEvents_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idChofer" ColumnName="idChofer" />
+                <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+                <ScalarProperty Name="latitud" ColumnName="latitud" />
+                <ScalarProperty Name="nombreUbicacion" ColumnName="nombreUbicacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Bitacora">
+            <EntityTypeMapping TypeName="dbFlotillasCamionModel.Bitacora">
+              <MappingFragment StoreEntitySet="Bitacora">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="placa" ColumnName="placa" />
+                <ScalarProperty Name="nombreUbicacion" ColumnName="nombreUbicacion" />
+                <ScalarProperty Name="latitud" ColumnName="latitud" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+                <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+                <ScalarProperty Name="idChofer" ColumnName="idChofer" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spObtenerExtraccionInformacion" FunctionName="dbFlotillasCamionModel.Store.spObtenerExtraccionInformacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbFlotillasCamionModel.spObtenerExtraccionInformacion_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idChofer" ColumnName="idChofer" />
+                <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+                <ScalarProperty Name="latitud" ColumnName="latitud" />
+                <ScalarProperty Name="nombreUbicacion" ColumnName="nombreUbicacion" />
+                <ScalarProperty Name="EstadoAccion" ColumnName="EstadoAccion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="CatChoferes">
+            <EntityTypeMapping TypeName="dbFlotillasCamionModel.CatChoferes">
+              <MappingFragment StoreEntitySet="CatChoferes">
+                <ScalarProperty Name="enviarA" ColumnName="enviarA" />
+                <ScalarProperty Name="remolque2" ColumnName="remolque2" />
+                <ScalarProperty Name="remolque1" ColumnName="remolque1" />
+                <ScalarProperty Name="placa" ColumnName="placa" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="apeidoM" ColumnName="apeidoM" />
+                <ScalarProperty Name="apeidoP" ColumnName="apeidoP" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="users" ColumnName="users" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estatusActivo">
+            <EntityTypeMapping TypeName="dbFlotillasCamionModel.estatusActivo">
+              <MappingFragment StoreEntitySet="estatusActivo">
+                <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
+                <ScalarProperty Name="idChofer" ColumnName="idChofer" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SessionAppActiva">
+            <EntityTypeMapping TypeName="dbFlotillasCamionModel.SessionAppActiva">
+              <MappingFragment StoreEntitySet="SessionAppActiva">
+                <ScalarProperty Name="inicioSession" ColumnName="inicioSession" />
+                <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="placa" ColumnName="placa" />
+                <ScalarProperty Name="idChofer" ColumnName="idChofer" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

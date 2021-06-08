@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbFlotillasCamionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="dbFlotillasCamionEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="spObtenerUsuario" ReturnType="Collection(dbFlotillasCamionModel.spObtenerUsuario_Result)" />
+    <EntitySet Name="CatEmpresas" EntityType="dbFlotillasCamionModel.CatEmpresas" />
+    <EntitySet Name="CatEstados" EntityType="dbFlotillasCamionModel.CatEstados" />
+    <EntitySet Name="CatUsuarios" EntityType="dbFlotillasCamionModel.CatUsuarios" />
+    <EntitySet Name="Dispositivos" EntityType="dbFlotillasCamionModel.Dispositivos" />
+    <EntitySet Name="EnvioCorreos" EntityType="dbFlotillasCamionModel.EnvioCorreos" />
+    <EntitySet Name="reglasEstados" EntityType="dbFlotillasCamionModel.reglasEstados" />
+    <EntitySet Name="sessionActiva" EntityType="dbFlotillasCamionModel.sessionActiva" />
+    <FunctionImport Name="spObtenerExtraccionEvents" ReturnType="Collection(dbFlotillasCamionModel.spObtenerExtraccionEvents_Result)">
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="idChofer" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Bitacora" EntityType="dbFlotillasCamionModel.Bitacora" />
+    <FunctionImport Name="spObtenerExtraccionInformacion" ReturnType="Collection(dbFlotillasCamionModel.spObtenerExtraccionInformacion_Result)">
+      <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="idChofer" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="CatChoferes" EntityType="dbFlotillasCamionModel.CatChoferes" />
+    <EntitySet Name="estatusActivo" EntityType="dbFlotillasCamionModel.estatusActivo" />
+    <EntitySet Name="SessionAppActiva" EntityType="dbFlotillasCamionModel.SessionAppActiva" />
+  </EntityContainer>
+  <ComplexType Name="spObtenerUsuario_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="users" Nullable="true" />
+    <Property Type="String" Name="pass" Nullable="true" />
+    <Property Type="String" Name="correo" Nullable="true" />
+    <Property Type="String" Name="nombre" Nullable="true" />
+    <Property Type="String" Name="apeidoPaterno" Nullable="true" />
+    <Property Type="String" Name="apeidoMaterno" Nullable="true" />
+    <Property Type="Int32" Name="idNivel" Nullable="true" />
+    <Property Type="Int32" Name="idEmpresa" Nullable="true" />
+    <Property Type="String" Name="Empresa" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="CatEmpresas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Empresa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CatEstados">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EstadoAccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CatUsuarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="apeidoPaterno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="apeidoMaterno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="idNivel" Type="Int32" />
+    <Property Name="idEmpresa" Type="Int32" />
+    <Property Name="userSmbTrack" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="passSmbTrack" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Dispositivos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dispositivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EnvioCorreos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FrenosEstacionamiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FrenosMantenimiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DispositivosAcoplamiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EquipoDeUrgencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Bocina" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LucesYReflectores" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Retrovisores" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Neumaticos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RuedasYLlantas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Limpiaparabrisas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Otro" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UbicacionDeInspeccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NoHayDefectos" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="reglasEstados">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="reglas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sessionActiva">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idEmpresa" Type="Int32" />
+    <Property Name="accessToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="idUser" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="keyUser" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="spObtenerExtraccionEvents_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="idChofer" Nullable="true" />
+    <Property Type="Int32" Name="idEstado" Nullable="true" />
+    <Property Type="DateTime" Name="fecha" Nullable="true" />
+    <Property Type="DateTime" Name="fechaInicio" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaFin" Nullable="true" Precision="23" />
+    <Property Type="String" Name="longitud" Nullable="true" />
+    <Property Type="String" Name="latitud" Nullable="true" />
+    <Property Type="String" Name="nombreUbicacion" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Bitacora">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idChofer" Type="Int32" />
+    <Property Name="idEstado" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="fechaInicio" Type="DateTime" Precision="3" />
+    <Property Name="fechaFin" Type="DateTime" Precision="3" />
+    <Property Name="longitud" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="latitud" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nombreUbicacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="placa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Boolean" />
+  </EntityType>
+  <ComplexType Name="spObtenerExtraccionInformacion_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="idChofer" Nullable="true" />
+    <Property Type="Int32" Name="idEstado" Nullable="true" />
+    <Property Type="DateTime" Name="fecha" Nullable="true" />
+    <Property Type="DateTime" Name="fechaInicio" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaFin" Nullable="true" Precision="23" />
+    <Property Type="String" Name="longitud" Nullable="true" />
+    <Property Type="String" Name="latitud" Nullable="true" />
+    <Property Type="String" Name="nombreUbicacion" Nullable="true" />
+    <Property Type="String" Name="EstadoAccion" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="CatChoferes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="apeidoP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="apeidoM" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="idEmpresa" Type="Int32" />
+    <Property Name="placa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="remolque1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="remolque2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="enviarA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="estatusActivo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idChofer" Type="Int32" />
+    <Property Name="idEstatus" Type="Int32" />
+    <Property Name="fechaInicio" Type="DateTime" Precision="3" />
+    <Property Name="fechaFin" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SessionAppActiva">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idChofer" Type="Int32" />
+    <Property Name="placa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaInicio" Type="DateTime" Precision="3" />
+    <Property Name="fechaFin" Type="DateTime" Precision="3" />
+    <Property Name="inicioSession" Type="Boolean" />
+  </EntityType>
+</Schema>

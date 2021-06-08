@@ -1,0 +1,17 @@
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\bin\Debug\ClsModFlotillas.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\bin\Debug\ClsModFlotillas.pdb
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\bin\Debug\System.Security.Permissions.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\bin\Debug\System.Security.AccessControl.xml
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\bin\Debug\System.Security.Permissions.xml
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\obj\Debug\ClsModFlotillas.csproj.CoreCompileInputs.cache
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\obj\Debug\ClsModFlotillas.csproj.CopyComplete
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\obj\Debug\ClsModFlotillas.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\obj\Debug\ClsModFlotillas.pdb
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\obj\Debug\ClsModFlotillas.csprojAssemblyReference.cache

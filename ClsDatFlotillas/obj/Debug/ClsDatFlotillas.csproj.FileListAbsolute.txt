@@ -1,0 +1,16 @@
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsDatFlotillas\bin\Debug\ClsDatFlotillas.dll.config
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsDatFlotillas\bin\Debug\ClsDatFlotillas.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsDatFlotillas\bin\Debug\ClsDatFlotillas.pdb
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsDatFlotillas\bin\Debug\ClsModFlotillas.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsDatFlotillas\bin\Debug\EntityFramework.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsDatFlotillas\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsDatFlotillas\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsDatFlotillas\bin\Debug\ClsModFlotillas.pdb
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsDatFlotillas\bin\Debug\EntityFramework.xml
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsDatFlotillas\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsDatFlotillas\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsDatFlotillas\obj\Debug\ClsDatFlotillas.csprojAssemblyReference.cache
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsDatFlotillas\obj\Debug\ClsDatFlotillas.csproj.CoreCompileInputs.cache
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsDatFlotillas\obj\Debug\ClsDatFlotillas.csproj.CopyComplete
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsDatFlotillas\obj\Debug\ClsDatFlotillas.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsDatFlotillas\obj\Debug\ClsDatFlotillas.pdb
