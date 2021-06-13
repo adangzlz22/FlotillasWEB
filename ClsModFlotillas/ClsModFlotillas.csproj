@@ -69,6 +69,7 @@
     <Compile Include="Bitacora\ClsModParametrosBitacora.cs" />
     <Compile Include="Bitacora\ClsModParamsBit.cs" />
     <Compile Include="Choferes\ClsModChoferes.cs" />
+    <Compile Include="Choferes\ClsModEnvioCorreo.cs" />
     <Compile Include="Choferes\ClsModLogSMB.cs" />
     <Compile Include="Choferes\ClsModObtenerVehiculosHeders.cs" />
     <Compile Include="Choferes\ClsModObtenerVehiculosParametros.cs" />

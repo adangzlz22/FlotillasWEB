@@ -15,3 +15,20 @@ C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsMo
 C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\obj\Debug\ClsModFlotillas.dll
 C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\obj\Debug\ClsModFlotillas.pdb
 C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\ClsModFlotillas\obj\Debug\ClsModFlotillas.csprojAssemblyReference.cache
+C:\proyectos\FlotillasWEB\ClsModFlotillas\bin\Debug\ClsModFlotillas.dll
+C:\proyectos\FlotillasWEB\ClsModFlotillas\bin\Debug\ClsModFlotillas.pdb
+C:\proyectos\FlotillasWEB\ClsModFlotillas\bin\Debug\Newtonsoft.Json.dll
+C:\proyectos\FlotillasWEB\ClsModFlotillas\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\proyectos\FlotillasWEB\ClsModFlotillas\bin\Debug\System.Security.AccessControl.dll
+C:\proyectos\FlotillasWEB\ClsModFlotillas\bin\Debug\System.Security.Permissions.dll
+C:\proyectos\FlotillasWEB\ClsModFlotillas\bin\Debug\System.Security.Principal.Windows.dll
+C:\proyectos\FlotillasWEB\ClsModFlotillas\bin\Debug\Newtonsoft.Json.xml
+C:\proyectos\FlotillasWEB\ClsModFlotillas\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\proyectos\FlotillasWEB\ClsModFlotillas\bin\Debug\System.Security.AccessControl.xml
+C:\proyectos\FlotillasWEB\ClsModFlotillas\bin\Debug\System.Security.Permissions.xml
+C:\proyectos\FlotillasWEB\ClsModFlotillas\bin\Debug\System.Security.Principal.Windows.xml
+C:\proyectos\FlotillasWEB\ClsModFlotillas\obj\Debug\ClsModFlotillas.csprojAssemblyReference.cache
+C:\proyectos\FlotillasWEB\ClsModFlotillas\obj\Debug\ClsModFlotillas.csproj.CoreCompileInputs.cache
+C:\proyectos\FlotillasWEB\ClsModFlotillas\obj\Debug\ClsModFlotillas.csproj.CopyComplete
+C:\proyectos\FlotillasWEB\ClsModFlotillas\obj\Debug\ClsModFlotillas.dll
+C:\proyectos\FlotillasWEB\ClsModFlotillas\obj\Debug\ClsModFlotillas.pdb

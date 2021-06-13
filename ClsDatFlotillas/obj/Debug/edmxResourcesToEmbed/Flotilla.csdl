@@ -76,6 +76,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idChofer" Type="Int32" />
     <Property Name="FrenosEstacionamiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="FrenosMantenimiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="DispositivosAcoplamiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -91,6 +92,10 @@
     <Property Name="UbicacionDeInspeccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="NoHayDefectos" Type="Boolean" />
+    <Property Name="Ciudad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Pais" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TipoInspeccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="reglasEstados">
     <Key>

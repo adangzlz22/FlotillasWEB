@@ -74,6 +74,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idChofer" Type="int" />
     <Property Name="FrenosEstacionamiento" Type="varchar(max)" />
     <Property Name="FrenosMantenimiento" Type="varchar(max)" />
     <Property Name="DispositivosAcoplamiento" Type="varchar(max)" />
@@ -89,6 +90,10 @@
     <Property Name="UbicacionDeInspeccion" Type="varchar(max)" />
     <Property Name="Observaciones" Type="varchar(max)" />
     <Property Name="NoHayDefectos" Type="bit" />
+    <Property Name="Ciudad" Type="varchar(max)" />
+    <Property Name="Estado" Type="varchar(max)" />
+    <Property Name="Pais" Type="varchar(max)" />
+    <Property Name="TipoInspeccion" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="estatusActivo">
     <Key>

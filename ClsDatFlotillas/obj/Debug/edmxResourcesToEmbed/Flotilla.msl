@@ -61,6 +61,10 @@
     <EntitySetMapping Name="EnvioCorreos">
       <EntityTypeMapping TypeName="dbFlotillasCamionModel.EnvioCorreos">
         <MappingFragment StoreEntitySet="EnvioCorreos">
+          <ScalarProperty Name="TipoInspeccion" ColumnName="TipoInspeccion" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
           <ScalarProperty Name="NoHayDefectos" ColumnName="NoHayDefectos" />
           <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
           <ScalarProperty Name="UbicacionDeInspeccion" ColumnName="UbicacionDeInspeccion" />
@@ -76,6 +80,7 @@
           <ScalarProperty Name="DispositivosAcoplamiento" ColumnName="DispositivosAcoplamiento" />
           <ScalarProperty Name="FrenosMantenimiento" ColumnName="FrenosMantenimiento" />
           <ScalarProperty Name="FrenosEstacionamiento" ColumnName="FrenosEstacionamiento" />
+          <ScalarProperty Name="idChofer" ColumnName="idChofer" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

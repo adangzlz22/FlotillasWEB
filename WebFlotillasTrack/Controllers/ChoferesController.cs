@@ -414,5 +414,56 @@ namespace WebFlotillasTrack.Controllers
 
             return objModResponse;
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [ActionName("choferTieneSesionByIdChofer")]
+        public ClsModResponse TieneSesionByIdChofer(int idChofer)
+        {
+            ClsModResponse objModResponse = new ClsModResponse();
+            ClsModResultado objModResultado = null;
+            ClsModRequest objModRequest = new ClsModRequest();
+            SessionAppActiva isSesionACtiva = new ClsNegChoferes().TieneSesionByIdChofer(idChofer, out objModResultado);
+            objModResponse.Model = ClsObjectTransformation.SerializeObjectToString<object>(isSesionACtiva, FormatoRespuesta.JSON);
+            objModResponse.ObjModResultado = objModResultado;
+
+
+            return objModResponse;
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ActionName("CrearCertificacion")]
+        public ClsModResponse CrearCertificacion([FromBody] ClsModRequest objModRequest)
+        {
+            ClsModEnvioCorreo objUsuario = ClsObjectTransformation.Deserialize<ClsModEnvioCorreo>(objModRequest.Model, objModRequest.Formato);
+            ClsModResponse objModResponse = new ClsModResponse();
+            ClsModResultado objModResultado = null;
+
+            ClsModEnvioCorreo objUsuarios = new ClsNegChoferes().CrearCertificacion(objUsuario, out objModResultado);
+            objModResponse.Model = ClsObjectTransformation.SerializeObjectToString<object>(objUsuarios, objModRequest.Formato);
+
+            objModResponse.ObjModResultado = objModResultado;
+
+
+            return objModResponse;
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [ActionName("obtenerCertificadosInspeccion")]
+        public ClsModResponse ObtenerCertificadosInspeccion(int idChofer)
+        {
+            ClsModResponse objModResponse = new ClsModResponse();
+            ClsModResultado objModResultado = null;
+            ClsModRequest objModRequest = new ClsModRequest();
+            List<ClsModEnvioCorreo> isSesionACtiva = new ClsNegChoferes().ObtenerCertificadosInspeccion(idChofer, out objModResultado);
+            objModResponse.Model = ClsObjectTransformation.SerializeObjectToString<object>(isSesionACtiva, FormatoRespuesta.JSON);
+            objModResponse.ObjModResultado = objModResultado;
+
+
+            return objModResponse;
+        }
+
     }
 }

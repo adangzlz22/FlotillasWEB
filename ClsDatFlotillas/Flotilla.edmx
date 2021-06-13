@@ -79,6 +79,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idChofer" Type="int" />
           <Property Name="FrenosEstacionamiento" Type="varchar(max)" />
           <Property Name="FrenosMantenimiento" Type="varchar(max)" />
           <Property Name="DispositivosAcoplamiento" Type="varchar(max)" />
@@ -94,6 +95,10 @@
           <Property Name="UbicacionDeInspeccion" Type="varchar(max)" />
           <Property Name="Observaciones" Type="varchar(max)" />
           <Property Name="NoHayDefectos" Type="bit" />
+          <Property Name="Ciudad" Type="varchar(max)" />
+          <Property Name="Estado" Type="varchar(max)" />
+          <Property Name="Pais" Type="varchar(max)" />
+          <Property Name="TipoInspeccion" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="estatusActivo">
           <Key>
@@ -236,6 +241,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idChofer" Type="Int32"/>
           <Property Name="FrenosEstacionamiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="FrenosMantenimiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="DispositivosAcoplamiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -251,6 +257,11 @@
           <Property Name="UbicacionDeInspeccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="NoHayDefectos" Type="Boolean" />
+          <Property Name="Ciudad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Pais" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TipoInspeccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+
         </EntityType>
         <EntityType Name="reglasEstados">
           <Key>
@@ -412,6 +423,10 @@
           <EntitySetMapping Name="EnvioCorreos">
             <EntityTypeMapping TypeName="dbFlotillasCamionModel.EnvioCorreos">
               <MappingFragment StoreEntitySet="EnvioCorreos">
+                <ScalarProperty Name="TipoInspeccion" ColumnName="TipoInspeccion" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
                 <ScalarProperty Name="NoHayDefectos" ColumnName="NoHayDefectos" />
                 <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
                 <ScalarProperty Name="UbicacionDeInspeccion" ColumnName="UbicacionDeInspeccion" />
@@ -427,6 +442,7 @@
                 <ScalarProperty Name="DispositivosAcoplamiento" ColumnName="DispositivosAcoplamiento" />
                 <ScalarProperty Name="FrenosMantenimiento" ColumnName="FrenosMantenimiento" />
                 <ScalarProperty Name="FrenosEstacionamiento" ColumnName="FrenosEstacionamiento" />
+                <ScalarProperty Name="idChofer" ColumnName="idChofer" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
