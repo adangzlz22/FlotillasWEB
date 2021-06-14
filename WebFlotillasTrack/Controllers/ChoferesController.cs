@@ -414,5 +414,46 @@ namespace WebFlotillasTrack.Controllers
 
             return objModResponse;
         }
+
+
+        public string ExtraerUbicaciones(string latitud, string longitud)
+        {
+            string a = "";
+
+            string peticion = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitud + "," + longitud + "&key=AIzaSyBBB3TsMb0CvbnHbrufmSaa6hPEhputYmY";
+            var request = (HttpWebRequest)WebRequest.Create(peticion);
+
+            ClsModObtenerVehiculosHeders objUsuarioHeders = new ClsModObtenerVehiculosHeders();
+
+            request.Method = "GET";
+            request.ContentType = "'application/json',\r\n";
+            request.Headers.Add("accessToken", objUsuarioHeders.accessToken);
+            request.Headers.Add("keyUser", objUsuarioHeders.keyUser);
+            request.Headers.Add("idUser", objUsuarioHeders.idUser);
+            request.KeepAlive = true;
+
+            using (WebResponse response = request.GetResponse())
+            {
+                using (Stream strReader = response.GetResponseStream())
+                {
+                    using (StreamReader objReader = new StreamReader(strReader))
+                    {
+                        string responseBody = objReader.ReadToEnd();
+                        // Do something with responseBody
+                        Console.WriteLine(responseBody);
+
+                        ClsModRequest obj = new ClsModRequest();
+                        obj.Model = responseBody;
+
+
+                        a = ClsObjectTransformation.Deserialize<string>(obj.Model, FormatoRespuesta.JSON);
+
+                    }
+                }
+            }
+
+
+            return a;
+        }
     }
 }

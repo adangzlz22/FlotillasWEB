@@ -1,9 +1,14 @@
 ﻿var LoginControllers = function () {
 
-    var url = 'https://localhost:44348/Api/Login/';
-    var url2 = 'https://localhost:44348/Api/Choferes/';
-    var vistas = 'https://localhost:44348/Vistas/';
-    // var urlApi = 'https://apiharodoor.harodoor.eu/Api/Visitas/SPActualizarVisitasDeUnSoloUso';
+    //var url = 'https://localhost:44348/Api/Login/';
+    //var url2 = 'https://localhost:44348/Api/Choferes/';
+
+    var vistas = 'http://adangonzalez-001-site4.ctempurl.com/Vistas/';
+
+    var url = 'http://adangonzalez-001-site4.ctempurl.com/Api/Login/';
+    var url2 = 'http://adangonzalez-001-site4.ctempurl.com/Api/Choferes/';
+
+
     const txtUser = $('#txtUser');
     const txtPass = $('#txtPass');
     const btnLogearse = $('#btnLogearse');

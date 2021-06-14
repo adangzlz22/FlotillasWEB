@@ -1,0 +1,196 @@
+﻿
+<div class=row>
+    <div class="col-lg-8"></div>
+    <div class="col-lg-1"><button id="btnBuscar" class="btn btn-success" >Buscar</button></div>
+    <div class="col-lg-1"> <button id="btnAbrirModalEmpresa" class="btn btn-success" data-toggle="modal" data-target="#modalEmpresa">Empresa</button></div>
+    <div class="col-lg-1"> <button id="btnAgregar" class="btn btn-success" data-toggle="modal" data-target="#modalCambiosCategorias">Agregar</button></div>
+</div>
+<br>
+<div class="col-lg-12 table-responsive table-bordered">
+    <br />
+    <table id="tblUsuarios" class="table-bordered stripe order-column" style="width: 100%;"></table>
+</div>
+
+
+
+<div id="modalEmpresa" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h1 class="modal-title"><i class="fa fa-dollar"></i>Empresas</h1>
+            </div>
+            <div class="modal-body">
+                <!-- SECCION DE CONTROLES -->
+                <div class="seccion">
+                    <div class="row">
+                        <div class="col-lg-12">
+                        <div class=row>
+                            <div class="col-lg-8"></div>
+                            <div class="col-lg-2"> <button id="btnModalAgregarEmpresa" class="btn btn-success" data-toggle="modal" data-target="#modalAgregarEmpresa">Agregar Empresa</button></div>
+                            <div class="col-lg-2"></div>
+                            <br>
+                            <br>
+                        </div>
+                        <div class="col-lg-12 table-responsive table-bordered">
+                            <br />
+                            <table id="tblEmpresasModal" class="table-bordered stripe order-column" style="width: 100%;"></table>
+                        </div>
+                           
+                        </div>
+                    </div><br>
+
+                </div>
+                <!-- END: SECCION DE CONTROLES -->
+            </div>
+            <div class="modal-footer">
+                <button type='button' class="btn btn-primary" id="btnNuevoLimpiar" style="display:none;"><i class="fa fa-brush"></i> Limpiar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" style="display:none;"><i class="fas fa-undo"></i> Regresar</button>
+                <button type="button" id="btnCrearEditar" class="btn btn-primary" style="display:none;"><i class="fas fa-save"></i> Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modalAgregarEmpresa" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h1 class="modal-title"><i class="fa fa-dollar"></i>Nueva Empresa</h1>
+            </div>
+            <div class="modal-body">
+                <!-- SECCION DE CONTROLES -->
+                <div class="seccion">
+                    <div class="row">
+                        <div class="col-lg-12">
+                           
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Nombre Empresa</span>
+                                    <input id="txtNombreEmpresaModal" class="form-control" />
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div><br>
+
+                </div>
+                <!-- END: SECCION DE CONTROLES -->
+            </div>
+            <div class="modal-footer">
+                <button type='button' class="btn btn-primary" id="btnNuevoLimpiar" style="display:none;"><i class="fa fa-brush"></i> Limpiar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fas fa-undo"></i> Regresar</button>
+                <button type="button" id="btnCrearEditarModal" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="modalCambiosCategorias" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header modal-bg" style="background-color:#005eff;color:#fff">
+            Agregar Usuario Administrador
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="text-center">
+                    <h3><label id="titleCurso"></label></h3>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Empresa</span>
+                            <select id="cboEmpresa" class="form-control"></select>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Nombre</span>
+                            <input id="txtNombre" class="form-control" />
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">Apeido Paterno</span>
+                            <input id="txtApeidoPaterno" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">Aperido Materno</span>
+                            <input id="txtApeidoMaterno" class="form-control" />
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">Usuario</span>
+                            <input id="txtUsuario" class="form-control" />
+                        </div>
+                    </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">Correo</span>
+                            <input id="txtEmail" class="form-control" />
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">Contrasena</span>
+                            <input type="password" id="txtContrasena" class="form-control" />
+                        </div>
+                    </div>
+                 <br>
+                    <br>
+                      <div class="row">
+                           <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">Usuario smbTRACK</span>
+                            <input id="txtUsuariosmbTrack" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">Contrasena smbTRACK</span>
+                            <input type="password" id="txtContrasenasmbTrack" class="form-control" />
+                        </div>
+                    </div>
+                      </div>
+
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                 <button type="button" class="btn btn-success" id="btnGuardarModalArchivos">Guardar</button> 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+    <script src="~/Scripts/utilitis.js"></script>
+    <script src="~/Scripts/service.js"></script>
+    <script src="../Scripts/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/DataTables/datatables.js"></script>
+    <script src="~/Scripts/DataTables/datatables.min.js"></script>
+    <script src="~/Scripts/Controllers/EmpresasControllers.js"></script>
+    <script type="text/javascript">
+        (function () {
+            var clsEmpresasControllers = new EmpresasControllers();
+            clsEmpresasControllers.Inicializar();
+        })();
+    </script>

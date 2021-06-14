@@ -1,0 +1,16 @@
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\ClsDatFlotillas\bin\Release\ClsDatFlotillas.dll.config
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\ClsDatFlotillas\bin\Release\ClsDatFlotillas.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\ClsDatFlotillas\bin\Release\ClsDatFlotillas.pdb
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\ClsDatFlotillas\bin\Release\ClsModFlotillas.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\ClsDatFlotillas\bin\Release\EntityFramework.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\ClsDatFlotillas\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\ClsDatFlotillas\bin\Release\Newtonsoft.Json.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\ClsDatFlotillas\bin\Release\ClsModFlotillas.pdb
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\ClsDatFlotillas\bin\Release\EntityFramework.xml
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\ClsDatFlotillas\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\ClsDatFlotillas\bin\Release\Newtonsoft.Json.xml
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\ClsDatFlotillas\obj\Release\ClsDatFlotillas.csprojAssemblyReference.cache
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\ClsDatFlotillas\obj\Release\ClsDatFlotillas.csproj.CoreCompileInputs.cache
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\ClsDatFlotillas\obj\Release\ClsDatFlotillas.csproj.CopyComplete
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\ClsDatFlotillas\obj\Release\ClsDatFlotillas.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\ClsDatFlotillas\obj\Release\ClsDatFlotillas.pdb
