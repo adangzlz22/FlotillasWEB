@@ -464,8 +464,6 @@ namespace WebFlotillasTrack.Controllers
 
             return objModResponse;
         }
-
-
         public string ExtraerUbicaciones(string latitud, string longitud)
         {
             string a = "";

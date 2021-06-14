@@ -240,5 +240,52 @@ namespace ClsNegFlotillas.Choferes
             }
             return objUsuarios;
         }
+
+        public SessionAppActiva TieneSesionByIdChofer(int idChofer, out ClsModResultado objClsModResultado)
+        {
+            objClsModResultado = new ClsModResultado();
+            SessionAppActiva isSessionActiva = new SessionAppActiva();
+            try
+            {
+                isSessionActiva = new ClsDatChoferes().TieneSesionByIdChofer(idChofer, out objClsModResultado);
+            }
+            catch (Exception ex)
+            {
+                objClsModResultado.MsgError = ex.Message;
+            }
+            return isSessionActiva;
+        }
+
+        public ClsModEnvioCorreo CrearCertificacion(ClsModEnvioCorreo objModel, out ClsModResultado objClsModResultado)
+        {
+            objClsModResultado = new ClsModResultado();
+            ClsModEnvioCorreo objUsuarios = new ClsModEnvioCorreo();
+            try
+            {
+                objUsuarios = new ClsDatChoferes().CrearCertificacion(objModel, out objClsModResultado);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objUsuarios;
+        }
+
+        public List<ClsModEnvioCorreo> ObtenerCertificadosInspeccion(int idChofer, out ClsModResultado objClsModResultado)
+        {
+            objClsModResultado = new ClsModResultado();
+            List<ClsModEnvioCorreo> isSessionActiva = new List<ClsModEnvioCorreo>();
+            try
+            {
+                isSessionActiva = new ClsDatChoferes().ObtenerCertificadosInspeccion(idChofer, out objClsModResultado);
+            }
+            catch (Exception ex)
+            {
+                objClsModResultado.MsgError = ex.Message;
+            }
+            return isSessionActiva;
+        }
+
+
     }
 }
