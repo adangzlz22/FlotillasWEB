@@ -124,6 +124,8 @@ C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\WebFl
 C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\WebFlotillasTrack\bin\Google.Apis.YouTube.v3.xml
 C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\WebFlotillasTrack\bin\Geocoder.dll
 C:\Users\Adan Glez\OneDrive\Escritorio\ProyectoFlotillas\WebFlotillasTrack\WebFlotillasTrack\bin\Geocoding.dll
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\WebFlotillasTrack\obj\Debug\WebFlotillasTrack.csprojAssemblyReference.cache
+C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\WebFlotillasTrack\obj\Debug\WebFlotillasTrack.csproj.CoreCompileInputs.cache
 C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\WebFlotillasTrack\bin\WebFlotillasTrack.dll.config
 C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\WebFlotillasTrack\bin\WebFlotillasTrack.dll
 C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\WebFlotillasTrack\bin\WebFlotillasTrack.pdb
@@ -245,8 +247,6 @@ C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\WebFlotillasTrack\bi
 C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\WebFlotillasTrack\bin\es\System.Web.WebPages.resources.dll
 C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\WebFlotillasTrack\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\WebFlotillasTrack\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\WebFlotillasTrack\obj\Debug\WebFlotillasTrack.csprojAssemblyReference.cache
-C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\WebFlotillasTrack\obj\Debug\WebFlotillasTrack.csproj.CoreCompileInputs.cache
 C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\WebFlotillasTrack\obj\Debug\WebFlotillasTrack.csproj.CopyComplete
 C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\WebFlotillasTrack\obj\Debug\WebFlotillasTrack.dll
 C:\Users\Adan Glez\OneDrive\Escritorio\appFlot\FlotillasWEB\WebFlotillasTrack\obj\Debug\WebFlotillasTrack.pdb
