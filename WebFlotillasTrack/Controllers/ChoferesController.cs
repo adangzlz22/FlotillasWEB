@@ -229,57 +229,60 @@ namespace WebFlotillasTrack.Controllers
                 foreach (var item in lstObtenerSessiones)
                 {
                     objVehiculos = ObtenerPlacas(item.correo, item.accessToken, item.keyUser, item.idUser);
-                    foreach (var itemV in objVehiculos.data)
+                    if (objVehiculos.data != null)
                     {
-                        if (n.placa == itemV.Vehiculo)
+                        foreach (var itemV in objVehiculos.data)
                         {
-                            string FechaActual = objUsuario.fechaFin.ToString("yyyy-MM-dd");
-                            string HoraInicial = objUsuario.fechaInicio.ToString("HH:mm:ss");
-                            string HoraFinal = objUsuario.fechaFin.ToString("HH:mm:ss");
-                            lstPosit = ObtenerBitacora(itemV.Vehiculo, FechaActual, HoraInicial, HoraFinal, item.accessToken, item.keyUser, item.idUser);
-                            ClsModParamsBit objParametros = new ClsModParamsBit();
-                            int idestatus = 0;
-                            ClsModParametrosStatusActivo objparametro = new ClsModParametrosStatusActivo();
-                            objparametro.idChofer = n.idChofer;
-                            estatusActivo objEstatus = new ClsNegChoferes().ObtenerEstatusActivo(objparametro, out objModResultado);
-
-                            if (objEstatus != null)
+                            if (n.placa == itemV.Vehiculo)
                             {
-                                switch (objEstatus.idEstatus)
+                                string FechaActual = objUsuario.fechaFin.ToString("yyyy-MM-dd");
+                                string HoraInicial = objUsuario.fechaInicio.ToString("HH:mm:ss");
+                                string HoraFinal = objUsuario.fechaFin.ToString("HH:mm:ss");
+                                lstPosit = ObtenerBitacora(itemV.Vehiculo, FechaActual, HoraInicial, HoraFinal, item.accessToken, item.keyUser, item.idUser);
+                                ClsModParamsBit objParametros = new ClsModParamsBit();
+                                int idestatus = 0;
+                                ClsModParametrosStatusActivo objparametro = new ClsModParametrosStatusActivo();
+                                objparametro.idChofer = n.idChofer;
+                                estatusActivo objEstatus = new ClsNegChoferes().ObtenerEstatusActivo(objparametro, out objModResultado);
+
+                                if (objEstatus != null)
                                 {
-                                    case 4:
-                                        idestatus = (int)objEstatus.idEstatus;
-                                        break;
-                                    case 3:
-                                        idestatus = (int)objEstatus.idEstatus;
-                                        break;
-                                    case 1:
-                                        idestatus = lstPosit.data.positions.Select(y => y.velocidad).FirstOrDefault() != "0" ? 2 : 1;
-                                        break;
-                                    case 2:
-                                        idestatus = lstPosit.data.positions.Select(y => y.velocidad).FirstOrDefault() != "0" ? 2 : 1;
-                                        break;
+                                    switch (objEstatus.idEstatus)
+                                    {
+                                        case 4:
+                                            idestatus = (int)objEstatus.idEstatus;
+                                            break;
+                                        case 3:
+                                            idestatus = (int)objEstatus.idEstatus;
+                                            break;
+                                        case 1:
+                                            idestatus = lstPosit.data.positions.Select(y => y.velocidad).FirstOrDefault() != "0" ? 2 : 1;
+                                            break;
+                                        case 2:
+                                            idestatus = lstPosit.data.positions.Select(y => y.velocidad).FirstOrDefault() != "0" ? 2 : 1;
+                                            break;
+                                    }
                                 }
-                            }
-                            else
-                            {
-                                idestatus = lstPosit.data.positions.Select(y => y.velocidad).FirstOrDefault() != "0" ? 2 : 1;
+                                else
+                                {
+                                    idestatus = lstPosit.data.positions.Select(y => y.velocidad).FirstOrDefault() != "0" ? 2 : 1;
+                                }
+                                
+                                objParametros.idEstado = idestatus;
+                                objParametros.fecha = Convert.ToDateTime(FechaActual);
+                                objParametros.fechaInicio = objUsuario.fechaInicio;
+                                objParametros.fechaFin = objUsuario.fechaFin;
+                                objParametros.logituf = lstPosit.data.positions.Select(y => y.longitud).FirstOrDefault();
+                                objParametros.latitud = lstPosit.data.positions.Select(y => y.latitud).FirstOrDefault();
+                                objParametros.placa = itemV.Vehiculo;
+                                objParametros.idChofer = n.idChofer;
+
+                                ClsModBitacora Respuesta = new ClsNegChoferes().GuardarBitacora(objParametros, out objModResultado);
                             }
 
-                            objParametros.idEstado = idestatus;
-                            objParametros.fecha = Convert.ToDateTime(FechaActual);
-                            objParametros.fechaInicio = objUsuario.fechaInicio;
-                            objParametros.fechaFin = objUsuario.fechaFin;
-                            objParametros.logituf = lstPosit.data.positions.Select(y => y.longitud).FirstOrDefault();
-                            objParametros.latitud = lstPosit.data.positions.Select(y => y.latitud).FirstOrDefault();
-                            objParametros.placa = itemV.Vehiculo;
-                            objParametros.idChofer = n.idChofer;
-
-                            ClsModBitacora Respuesta = new ClsNegChoferes().GuardarBitacora(objParametros, out objModResultado);
                         }
 
                     }
-
 
                 }
 
@@ -504,6 +507,57 @@ namespace WebFlotillasTrack.Controllers
             return a;
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        [ActionName("ObtenerReloj")]
+        public ClsModResponse ObtenerReloj([FromBody] ClsModRequest objModRequest)
+        {
+            ClsModTimer objUsuario = ClsObjectTransformation.Deserialize<ClsModTimer>(objModRequest.Model, objModRequest.Formato);
+            ClsModResponse objModResponse = new ClsModResponse();
+            ClsModResultado objModResultado = null;
+
+            List<spObtenerReloj_Result> objUsuarios = new ClsNegChoferes().ObtenerReloj(objUsuario, out objModResultado);
+            objModResponse.Model = ClsObjectTransformation.SerializeObjectToString<object>(objUsuarios, objModRequest.Formato);
+
+            objModResponse.ObjModResultado = objModResultado;
+
+
+            return objModResponse;
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ActionName("CerrarSession")]
+        public ClsModResponse CerrarSession([FromBody] ClsModRequest objModRequest)
+        {
+            ClsModTimer objUsuario = ClsObjectTransformation.Deserialize<ClsModTimer>(objModRequest.Model, objModRequest.Formato);
+            ClsModResponse objModResponse = new ClsModResponse();
+            ClsModResultado objModResultado = null;
+
+            var objUsuarios = new ClsNegChoferes().CerrarSession(objUsuario, out objModResultado);
+            objModResponse.Model = ClsObjectTransformation.SerializeObjectToString<object>(objUsuarios, objModRequest.Formato);
+
+            objModResponse.ObjModResultado = objModResultado;
+
+
+            return objModResponse;
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ActionName("ObtenerChoferNombre")]
+        public ClsModResponse ObtenerChoferNombre([FromBody] ClsModRequest objModRequest)
+        {
+            ClsModTimer objUsuario = ClsObjectTransformation.Deserialize<ClsModTimer>(objModRequest.Model, objModRequest.Formato);
+            ClsModResponse objModResponse = new ClsModResponse();
+            ClsModResultado objModResultado = null;
+
+            var objUsuarios = new ClsNegChoferes().ObtenerChoferNombre(objUsuario, out objModResultado);
+            objModResponse.Model = ClsObjectTransformation.SerializeObjectToString<object>(objUsuarios, objModRequest.Formato);
+
+            objModResponse.ObjModResultado = objModResultado;
+
+
+            return objModResponse;
+        }
 
     }
 }

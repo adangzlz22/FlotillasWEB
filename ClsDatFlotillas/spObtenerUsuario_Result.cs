@@ -23,5 +23,7 @@ namespace ClsDatFlotillas
         public Nullable<int> idNivel { get; set; }
         public Nullable<int> idEmpresa { get; set; }
         public string Empresa { get; set; }
+        public string userSmbTrack { get; set; }
+        public string passSmbTrack { get; set; }
     }
 }

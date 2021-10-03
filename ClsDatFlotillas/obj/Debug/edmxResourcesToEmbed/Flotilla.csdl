@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="dbFlotillasCamionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="dbFlotillasCamionEntities" annotation:LazyLoadingEnabled="true">
-    <FunctionImport Name="spObtenerUsuario" ReturnType="Collection(dbFlotillasCamionModel.spObtenerUsuario_Result)" />
     <EntitySet Name="CatEmpresas" EntityType="dbFlotillasCamionModel.CatEmpresas" />
     <EntitySet Name="CatEstados" EntityType="dbFlotillasCamionModel.CatEstados" />
     <EntitySet Name="CatUsuarios" EntityType="dbFlotillasCamionModel.CatUsuarios" />
@@ -21,25 +20,18 @@
     <EntitySet Name="CatChoferes" EntityType="dbFlotillasCamionModel.CatChoferes" />
     <EntitySet Name="estatusActivo" EntityType="dbFlotillasCamionModel.estatusActivo" />
     <EntitySet Name="SessionAppActiva" EntityType="dbFlotillasCamionModel.SessionAppActiva" />
+    <FunctionImport Name="spObtenerReloj" ReturnType="Collection(dbFlotillasCamionModel.spObtenerReloj_Result)">
+      <Parameter Name="idChofer" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spObtenerUsuario" ReturnType="Collection(dbFlotillasCamionModel.spObtenerUsuario_Result)" />
   </EntityContainer>
-  <ComplexType Name="spObtenerUsuario_Result">
-    <Property Type="Int32" Name="id" Nullable="false" />
-    <Property Type="String" Name="users" Nullable="true" />
-    <Property Type="String" Name="pass" Nullable="true" />
-    <Property Type="String" Name="correo" Nullable="true" />
-    <Property Type="String" Name="nombre" Nullable="true" />
-    <Property Type="String" Name="apeidoPaterno" Nullable="true" />
-    <Property Type="String" Name="apeidoMaterno" Nullable="true" />
-    <Property Type="Int32" Name="idNivel" Nullable="true" />
-    <Property Type="Int32" Name="idEmpresa" Nullable="true" />
-    <Property Type="String" Name="Empresa" Nullable="true" />
-  </ComplexType>
   <EntityType Name="CatEmpresas">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Empresa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Boolean" />
   </EntityType>
   <EntityType Name="CatEstados">
     <Key>
@@ -63,6 +55,7 @@
     <Property Name="idEmpresa" Type="Int32" />
     <Property Name="userSmbTrack" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="passSmbTrack" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Boolean" />
   </EntityType>
   <EntityType Name="Dispositivos">
     <Key>
@@ -91,6 +84,12 @@
     <Property Name="UbicacionDeInspeccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="NoHayDefectos" Type="Boolean" />
+    <Property Name="idChofer" Type="Int32" />
+    <Property Name="Enviado" Type="Boolean" />
+    <Property Name="Ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Pais" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TipoInspeccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="reglasEstados">
     <Key>
@@ -164,6 +163,7 @@
     <Property Name="remolque1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="remolque2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="enviarA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Boolean" />
   </EntityType>
   <EntityType Name="estatusActivo">
     <Key>
@@ -185,5 +185,34 @@
     <Property Name="fechaInicio" Type="DateTime" Precision="3" />
     <Property Name="fechaFin" Type="DateTime" Precision="3" />
     <Property Name="inicioSession" Type="Boolean" />
+    <Property Name="Remolque1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Remolque2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Envios" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
+  <ComplexType Name="spObtenerReloj_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="idChofer" Nullable="true" />
+    <Property Type="String" Name="placa" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fechaInicio" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fechaFin" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="inicioSession" Nullable="true" />
+    <Property Type="String" Name="Remolque1" Nullable="true" />
+    <Property Type="String" Name="Remolque2" Nullable="true" />
+    <Property Type="String" Name="Envios" Nullable="true" />
+    <Property Type="Time" Name="Reloj" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spObtenerUsuario_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="users" Nullable="true" />
+    <Property Type="String" Name="pass" Nullable="true" />
+    <Property Type="String" Name="correo" Nullable="true" />
+    <Property Type="String" Name="nombre" Nullable="true" />
+    <Property Type="String" Name="apeidoPaterno" Nullable="true" />
+    <Property Type="String" Name="apeidoMaterno" Nullable="true" />
+    <Property Type="Int32" Name="idNivel" Nullable="true" />
+    <Property Type="Int32" Name="idEmpresa" Nullable="true" />
+    <Property Type="String" Name="Empresa" Nullable="true" />
+    <Property Type="String" Name="userSmbTrack" Nullable="true" />
+    <Property Type="String" Name="passSmbTrack" Nullable="true" />
+  </ComplexType>
 </Schema>

@@ -39,11 +39,6 @@ namespace ClsDatFlotillas
         public virtual DbSet<estatusActivo> estatusActivo { get; set; }
         public virtual DbSet<SessionAppActiva> SessionAppActiva { get; set; }
     
-        public virtual ObjectResult<spObtenerUsuario_Result> spObtenerUsuario()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spObtenerUsuario_Result>("spObtenerUsuario");
-        }
-    
         public virtual ObjectResult<spObtenerExtraccionEvents_Result> spObtenerExtraccionEvents(Nullable<System.DateTime> fecha, Nullable<int> idChofer)
         {
             var fechaParameter = fecha.HasValue ?
@@ -68,6 +63,20 @@ namespace ClsDatFlotillas
                 new ObjectParameter("idChofer", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spObtenerExtraccionInformacion_Result>("spObtenerExtraccionInformacion", fechaParameter, idChoferParameter);
+        }
+    
+        public virtual ObjectResult<spObtenerReloj_Result> spObtenerReloj(Nullable<int> idChofer)
+        {
+            var idChoferParameter = idChofer.HasValue ?
+                new ObjectParameter("idChofer", idChofer) :
+                new ObjectParameter("idChofer", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spObtenerReloj_Result>("spObtenerReloj", idChoferParameter);
+        }
+    
+        public virtual ObjectResult<spObtenerUsuario_Result> spObtenerUsuario()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spObtenerUsuario_Result>("spObtenerUsuario");
         }
     }
 }

@@ -280,6 +280,8 @@
     <Content Include="fonts\iconic\css\material-design-iconic-font.min.css" />
     <Content Include="fonts\iconic\fonts\Material-Design-Iconic-Font.svg" />
     <Content Include="fonts\images\bg-01.jpg" />
+    <Content Include="fonts\images\Dashboard.png" />
+    <Content Include="fonts\images\Icono.png" />
     <Content Include="fonts\images\icons\favicon.ico" />
     <Content Include="fonts\main.css" />
     <Content Include="fonts\select2\select2.css" />

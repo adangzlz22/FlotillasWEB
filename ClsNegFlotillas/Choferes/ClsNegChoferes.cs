@@ -285,7 +285,49 @@ namespace ClsNegFlotillas.Choferes
             }
             return isSessionActiva;
         }
-
+        public List<spObtenerReloj_Result> ObtenerReloj(ClsModTimer objModel, out ClsModResultado objClsModResultado)
+        {
+            objClsModResultado = new ClsModResultado();
+            List<spObtenerReloj_Result> objUsuarios = new List<spObtenerReloj_Result>();
+            try
+            {
+                objUsuarios = new ClsDatChoferes().ObtenerReloj(objModel, out objClsModResultado);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objUsuarios;
+        }
+        public SessionAppActiva CerrarSession(ClsModTimer objModel, out ClsModResultado objClsModResultado)
+        {
+            objClsModResultado = new ClsModResultado();
+            SessionAppActiva objUsuarios = new SessionAppActiva();
+            try
+            {
+                objUsuarios = new ClsDatChoferes().CerrarSession(objModel, out objClsModResultado);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objUsuarios;
+        }
+        public CatChoferes ObtenerChoferNombre(ClsModTimer objModel, out ClsModResultado objClsModResultado)
+        {
+            objClsModResultado = new ClsModResultado();
+            CatChoferes objUsuarios = new CatChoferes();
+            try
+            {
+                objUsuarios = new ClsDatChoferes().ObtenerChoferNombre(objModel, out objClsModResultado);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objUsuarios;
+        }
+        
 
     }
 }

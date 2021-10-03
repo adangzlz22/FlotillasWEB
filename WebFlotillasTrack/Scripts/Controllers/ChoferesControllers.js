@@ -1,6 +1,6 @@
 var ChoferesControllers = function () {
-    //var url = 'https://localhost:44348/Api/Choferes/';
-    var url = 'http://adangonzalez-001-site4.ctempurl.com/Api/Choferes/';
+    var url = 'https://localhost:44348/Api/Choferes/';
+    //var url = 'http://adangonzalez-001-site4.ctempurl.com/Api/Choferes/';
 
 
 
@@ -58,6 +58,7 @@ var ChoferesControllers = function () {
         objService.PostToken(endPoint, Peticion, function (result) {
             let datos = JSON.parse(result.Model);
             if (datos != undefined) {
+                console.log(datos);
                 AddRows(tblChoferes,datos);
             }
         });
@@ -85,7 +86,18 @@ var ChoferesControllers = function () {
 
             columns: [
                 { title: 'id ', visible: false, data: 'id', width: '6%' },
-                { title: 'Empresa', data: 'Empresa', width: '7%' },
+                {
+                    title: 'Vehiculo', data: 'placa', width: '7%',
+                    render: function (data, type, row) {
+                        let html = '';
+                        if (data == "") {
+                            html = 'no tiene vehiculo';
+                        } else {
+                            html = data;
+                        }
+                        return html;
+                    }
+                },
                 { title: 'users', data: 'users', width: '7%' },
                 { title: 'pass', data: 'pass', width: '7%' },
                 { title: 'nombre', data: 'nombre', width: '7%' },
@@ -132,7 +144,10 @@ var ChoferesControllers = function () {
                     console.log(rowData)
                     txtUsuario.attr('data-id', rowData.id)
                     txtUsuario.val(rowData.users);
-
+                    txtNombre.val(rowData.pass);
+                    txtContrasena.val(rowData.nombre);
+                    txtApeidoPaterno.val(rowData.apeidoP);
+                    txtApeidoMaterno.val(rowData.apeidoM);
 
                 });
             }

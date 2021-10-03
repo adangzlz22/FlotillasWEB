@@ -25,5 +25,6 @@ namespace ClsDatFlotillas
         public Nullable<int> idEmpresa { get; set; }
         public string userSmbTrack { get; set; }
         public string passSmbTrack { get; set; }
+        public Nullable<bool> Activo { get; set; }
     }
 }

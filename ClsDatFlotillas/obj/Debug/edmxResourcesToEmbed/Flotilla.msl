@@ -1,25 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="dbFlotillasCamionModelStoreContainer" CdmEntityContainer="dbFlotillasCamionEntities">
-    <FunctionImportMapping FunctionImportName="spObtenerUsuario" FunctionName="dbFlotillasCamionModel.Store.spObtenerUsuario">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="dbFlotillasCamionModel.spObtenerUsuario_Result">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="users" ColumnName="users" />
-          <ScalarProperty Name="pass" ColumnName="pass" />
-          <ScalarProperty Name="correo" ColumnName="correo" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="apeidoPaterno" ColumnName="apeidoPaterno" />
-          <ScalarProperty Name="apeidoMaterno" ColumnName="apeidoMaterno" />
-          <ScalarProperty Name="idNivel" ColumnName="idNivel" />
-          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
-          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <EntitySetMapping Name="CatEmpresas">
       <EntityTypeMapping TypeName="dbFlotillasCamionModel.CatEmpresas">
         <MappingFragment StoreEntitySet="CatEmpresas">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="Empresa" ColumnName="Empresa" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
@@ -36,6 +21,7 @@
     <EntitySetMapping Name="CatUsuarios">
       <EntityTypeMapping TypeName="dbFlotillasCamionModel.CatUsuarios">
         <MappingFragment StoreEntitySet="CatUsuarios">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="passSmbTrack" ColumnName="passSmbTrack" />
           <ScalarProperty Name="userSmbTrack" ColumnName="userSmbTrack" />
           <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
@@ -61,6 +47,12 @@
     <EntitySetMapping Name="EnvioCorreos">
       <EntityTypeMapping TypeName="dbFlotillasCamionModel.EnvioCorreos">
         <MappingFragment StoreEntitySet="EnvioCorreos">
+          <ScalarProperty Name="TipoInspeccion" ColumnName="TipoInspeccion" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Enviado" ColumnName="Enviado" />
+          <ScalarProperty Name="idChofer" ColumnName="idChofer" />
           <ScalarProperty Name="NoHayDefectos" ColumnName="NoHayDefectos" />
           <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
           <ScalarProperty Name="UbicacionDeInspeccion" ColumnName="UbicacionDeInspeccion" />
@@ -151,6 +143,7 @@
     <EntitySetMapping Name="CatChoferes">
       <EntityTypeMapping TypeName="dbFlotillasCamionModel.CatChoferes">
         <MappingFragment StoreEntitySet="CatChoferes">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="enviarA" ColumnName="enviarA" />
           <ScalarProperty Name="remolque2" ColumnName="remolque2" />
           <ScalarProperty Name="remolque1" ColumnName="remolque1" />
@@ -179,6 +172,9 @@
     <EntitySetMapping Name="SessionAppActiva">
       <EntityTypeMapping TypeName="dbFlotillasCamionModel.SessionAppActiva">
         <MappingFragment StoreEntitySet="SessionAppActiva">
+          <ScalarProperty Name="Envios" ColumnName="Envios" />
+          <ScalarProperty Name="Remolque2" ColumnName="Remolque2" />
+          <ScalarProperty Name="Remolque1" ColumnName="Remolque1" />
           <ScalarProperty Name="inicioSession" ColumnName="inicioSession" />
           <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
           <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
@@ -188,5 +184,39 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spObtenerReloj" FunctionName="dbFlotillasCamionModel.Store.spObtenerReloj">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbFlotillasCamionModel.spObtenerReloj_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idChofer" ColumnName="idChofer" />
+          <ScalarProperty Name="placa" ColumnName="placa" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+          <ScalarProperty Name="inicioSession" ColumnName="inicioSession" />
+          <ScalarProperty Name="Remolque1" ColumnName="Remolque1" />
+          <ScalarProperty Name="Remolque2" ColumnName="Remolque2" />
+          <ScalarProperty Name="Envios" ColumnName="Envios" />
+          <ScalarProperty Name="Reloj" ColumnName="Reloj" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spObtenerUsuario" FunctionName="dbFlotillasCamionModel.Store.spObtenerUsuario">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbFlotillasCamionModel.spObtenerUsuario_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="users" ColumnName="users" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apeidoPaterno" ColumnName="apeidoPaterno" />
+          <ScalarProperty Name="apeidoMaterno" ColumnName="apeidoMaterno" />
+          <ScalarProperty Name="idNivel" ColumnName="idNivel" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="userSmbTrack" ColumnName="userSmbTrack" />
+          <ScalarProperty Name="passSmbTrack" ColumnName="passSmbTrack" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

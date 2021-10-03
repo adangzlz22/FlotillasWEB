@@ -5,6 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\Adan Glez\OneDrive\Escritorio\apideploy</_PublishTargetUrl>
+    <History>True|2021-07-24T20:49:17.6093989Z;True|2021-07-12T08:52:56.1942241-07:00;True|2021-07-05T20:39:28.8143637-07:00;True|2021-07-04T13:59:44.9981401-07:00;True|2021-06-26T14:32:07.3253946-07:00;True|2021-06-15T22:01:37.4357542-07:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/HelpPage/HelpPage.css">
@@ -77,28 +78,28 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/ClsDatFlotillas.dll">
-      <publishTime>06/13/2021 00:43:56</publishTime>
+      <publishTime>06/26/2021 14:31:59</publishTime>
     </File>
     <File Include="bin/ClsDatFlotillas.dll.config">
-      <publishTime>06/05/2021 18:03:32</publishTime>
+      <publishTime>06/19/2021 17:45:31</publishTime>
     </File>
     <File Include="bin/ClsDatFlotillas.pdb">
-      <publishTime>06/13/2021 00:43:56</publishTime>
+      <publishTime>06/26/2021 14:31:59</publishTime>
     </File>
     <File Include="bin/ClsModFlotillas.dll">
-      <publishTime>06/13/2021 00:43:56</publishTime>
+      <publishTime>06/19/2021 20:18:19</publishTime>
     </File>
     <File Include="bin/ClsModFlotillas.pdb">
-      <publishTime>06/13/2021 00:43:56</publishTime>
+      <publishTime>06/19/2021 20:18:19</publishTime>
     </File>
     <File Include="bin/ClsNegFlotillas.dll">
-      <publishTime>06/13/2021 00:43:56</publishTime>
+      <publishTime>07/29/2021 09:11:32</publishTime>
     </File>
     <File Include="bin/ClsNegFlotillas.dll.config">
       <publishTime>06/05/2021 18:03:32</publishTime>
     </File>
     <File Include="bin/ClsNegFlotillas.pdb">
-      <publishTime>06/13/2021 00:43:56</publishTime>
+      <publishTime>07/29/2021 09:11:32</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>04/16/2020 20:38:42</publishTime>
@@ -365,10 +366,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
     <File Include="bin/WebFlotillasTrack.dll">
-      <publishTime>06/13/2021 00:43:57</publishTime>
+      <publishTime>07/29/2021 09:12:14</publishTime>
     </File>
     <File Include="bin/WebFlotillasTrack.pdb">
-      <publishTime>06/13/2021 00:43:57</publishTime>
+      <publishTime>07/29/2021 09:12:14</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -637,6 +638,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="fonts/images/bg-01.jpg">
       <publishTime>12/17/2017 02:10:28</publishTime>
     </File>
+    <File Include="fonts/images/Dashboard.png">
+      <publishTime>07/24/2021 12:14:44</publishTime>
+    </File>
+    <File Include="fonts/images/Icono.png">
+      <publishTime>07/24/2021 12:14:44</publishTime>
+    </File>
     <File Include="fonts/images/icons/favicon.ico">
       <publishTime>01/21/2016 11:45:32</publishTime>
     </File>
@@ -785,16 +792,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/27/2017 18:59:00</publishTime>
     </File>
     <File Include="Scripts/Controllers/BitacoraControllers.js">
-      <publishTime>06/06/2021 17:45:23</publishTime>
+      <publishTime>07/24/2021 13:48:15</publishTime>
     </File>
     <File Include="Scripts/Controllers/ChoferesControllers.js">
-      <publishTime>05/07/2021 17:41:09</publishTime>
+      <publishTime>07/10/2021 16:02:17</publishTime>
     </File>
     <File Include="Scripts/Controllers/EmpresasControllers.js">
-      <publishTime>05/12/2021 19:49:08</publishTime>
+      <publishTime>06/13/2021 11:56:03</publishTime>
     </File>
     <File Include="Scripts/Controllers/LoginControllers.js">
-      <publishTime>05/29/2021 04:08:44</publishTime>
+      <publishTime>07/12/2021 12:21:13</publishTime>
     </File>
     <File Include="Scripts/countdowntime/countdowntime.js">
       <publishTime>11/09/2017 15:34:12</publishTime>
@@ -6446,13 +6453,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/03/2021 22:16:06</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/28/2021 19:12:46</publishTime>
+      <publishTime>07/24/2021 13:46:17</publishTime>
     </File>
     <File Include="Views/Vistas/Bitacora.cshtml">
       <publishTime>04/11/2021 17:33:05</publishTime>
     </File>
     <File Include="Views/Vistas/BitacoraPartial.cshtml">
-      <publishTime>06/06/2021 17:41:29</publishTime>
+      <publishTime>07/24/2021 13:47:55</publishTime>
     </File>
     <File Include="Views/Vistas/Choferes.cshtml">
       <publishTime>04/12/2021 18:33:34</publishTime>
@@ -6470,7 +6477,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/07/2021 20:03:56</publishTime>
     </File>
     <File Include="Views/Vistas/Login.cshtml">
-      <publishTime>04/15/2021 23:11:07</publishTime>
+      <publishTime>07/24/2021 13:35:04</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>04/03/2021 22:16:06</publishTime>
@@ -6479,7 +6486,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/07/2021 20:02:54</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/13/2021 00:43:58</publishTime>
+      <publishTime>06/15/2021 22:01:28</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -1,12 +1,12 @@
 ﻿var LoginControllers = function () {
 
-    //var url = 'https://localhost:44348/Api/Login/';
-    //var url2 = 'https://localhost:44348/Api/Choferes/';
+    var url = 'https://localhost:44348/Api/Login/';
+    var url2 = 'https://localhost:44348/Api/Choferes/';
+    var vistas = 'https://localhost:44348/Vistas/';
 
-    var vistas = 'http://adangonzalez-001-site4.ctempurl.com/Vistas/';
-
-    var url = 'http://adangonzalez-001-site4.ctempurl.com/Api/Login/';
-    var url2 = 'http://adangonzalez-001-site4.ctempurl.com/Api/Choferes/';
+    //var vistas = 'http://adangonzalez-001-site4.ctempurl.com/Vistas/';
+    //var url = 'http://adangonzalez-001-site4.ctempurl.com/Api/Login/';
+    //var url2 = 'http://adangonzalez-001-site4.ctempurl.com/Api/Choferes/';
 
 
     const txtUser = $('#txtUser');
@@ -62,7 +62,7 @@
             (function () {
                 contador++;
                 console.log(contador)
-                if (contador==600) {
+                if (contador==300) {
                     contador=0;
                     EjecutarExtracciondeUbicaciones();
                 }
@@ -76,7 +76,7 @@
             return (n>9 ? '' : '0') + n;
            }
            var date = new Date();
-        let fechaInicio = date.getFullYear() +"-"+zero(date.getMonth()+1) +"-"+zero(date.getDate()) +" "+ zero(date.getHours()) + ":" + zero(date.getMinutes()-10) + ":" + zero(date.getSeconds());
+        let fechaInicio = date.getFullYear() +"-"+zero(date.getMonth()+1) +"-"+zero(date.getDate()) +" "+ zero(date.getHours()) + ":" + zero(date.getMinutes()-5) + ":" + zero(date.getSeconds());
         let fechaFin = date.getFullYear() +"-"+zero(date.getMonth()+1) +"-"+zero(date.getDate()) +" "+ zero(date.getHours()) + ":" + zero(date.getMinutes()) + ":" + zero(date.getSeconds());
      console.log(fechaInicio)
      console.log(fechaFin)

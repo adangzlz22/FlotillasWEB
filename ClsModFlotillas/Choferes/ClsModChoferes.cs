@@ -21,5 +21,6 @@ namespace ClsModFlotillas.Choferes
         public string mensaje { get; set; }
         public string passSmbTrack { get; set; }
         public string userSmbTrack { get; set; }
+        public string placa { get; set; }
     }
 }

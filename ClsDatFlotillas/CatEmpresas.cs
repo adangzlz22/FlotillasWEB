@@ -16,5 +16,6 @@ namespace ClsDatFlotillas
     {
         public int id { get; set; }
         public string Empresa { get; set; }
+        public Nullable<bool> Activo { get; set; }
     }
 }

@@ -53,7 +53,9 @@ namespace ClsDatFlotillas.Usuarios
                     apeidoMaterno = y.apeidoMaterno,
                     idNivel = (int)y.idNivel,
                     idEmpresa = (int)y.idEmpresa,
-                    Empresa = y.Empresa
+                    Empresa = y.Empresa,
+                    userSmbTrack = y.userSmbTrack,
+                    passSmbTrack = y.passSmbTrack
                 }).ToList();
 
 

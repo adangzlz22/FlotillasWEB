@@ -36,6 +36,7 @@
           <Property Name="remolque1" Type="varchar(max)" />
           <Property Name="remolque2" Type="varchar(max)" />
           <Property Name="enviarA" Type="varchar(max)" />
+          <Property Name="Activo" Type="bit" />
         </EntityType>
         <EntityType Name="CatEmpresas">
           <Key>
@@ -43,6 +44,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Empresa" Type="varchar(max)" />
+          <Property Name="Activo" Type="bit" />
         </EntityType>
         <EntityType Name="CatEstados">
           <Key>
@@ -66,6 +68,7 @@
           <Property Name="idEmpresa" Type="int" />
           <Property Name="userSmbTrack" Type="varchar(max)" />
           <Property Name="passSmbTrack" Type="varchar(max)" />
+          <Property Name="Activo" Type="bit" />
         </EntityType>
         <EntityType Name="Dispositivos">
           <Key>
@@ -79,6 +82,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idChofer" Type="int" />
           <Property Name="FrenosEstacionamiento" Type="varchar(max)" />
           <Property Name="FrenosMantenimiento" Type="varchar(max)" />
           <Property Name="DispositivosAcoplamiento" Type="varchar(max)" />
@@ -94,6 +98,11 @@
           <Property Name="UbicacionDeInspeccion" Type="varchar(max)" />
           <Property Name="Observaciones" Type="varchar(max)" />
           <Property Name="NoHayDefectos" Type="bit" />
+          <Property Name="Enviado" Type="bit" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="50" />
+          <Property Name="Estado" Type="varchar(max)" />
+          <Property Name="Pais" Type="varchar(max)" />
+          <Property Name="TipoInspeccion" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="estatusActivo">
           <Key>
@@ -133,13 +142,19 @@
           <Property Name="fechaInicio" Type="datetime" />
           <Property Name="fechaFin" Type="datetime" />
           <Property Name="inicioSession" Type="bit" />
+          <Property Name="Remolque1" Type="varchar(max)" />
+          <Property Name="Remolque2" Type="varchar(max)" />
+          <Property Name="Envios" Type="varchar(max)" />
         </EntityType>
         <Function Name="spObtenerExtraccionEvents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Fecha" Type="date" Mode="In" />
+          <Parameter Name="Fecha" Type="datetime" Mode="In" />
           <Parameter Name="idChofer" Type="int" Mode="In" />
         </Function>
         <Function Name="spObtenerExtraccionInformacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Fecha" Type="date" Mode="In" />
+          <Parameter Name="Fecha" Type="datetime" Mode="In" />
+          <Parameter Name="idChofer" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spObtenerReloj" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idChofer" Type="int" Mode="In" />
         </Function>
         <Function Name="spObtenerUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -161,7 +176,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="dbFlotillasCamionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="dbFlotillasCamionEntities" annotation:LazyLoadingEnabled="true">
-          <FunctionImport Name="spObtenerUsuario" ReturnType="Collection(dbFlotillasCamionModel.spObtenerUsuario_Result)" />
           <EntitySet Name="CatEmpresas" EntityType="dbFlotillasCamionModel.CatEmpresas" />
           <EntitySet Name="CatEstados" EntityType="dbFlotillasCamionModel.CatEstados" />
           <EntitySet Name="CatUsuarios" EntityType="dbFlotillasCamionModel.CatUsuarios" />
@@ -181,25 +195,18 @@
           <EntitySet Name="CatChoferes" EntityType="dbFlotillasCamionModel.CatChoferes" />
           <EntitySet Name="estatusActivo" EntityType="dbFlotillasCamionModel.estatusActivo" />
           <EntitySet Name="SessionAppActiva" EntityType="dbFlotillasCamionModel.SessionAppActiva" />
+          <FunctionImport Name="spObtenerReloj" ReturnType="Collection(dbFlotillasCamionModel.spObtenerReloj_Result)">
+          <Parameter Name="idChofer" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spObtenerUsuario" ReturnType="Collection(dbFlotillasCamionModel.spObtenerUsuario_Result)" />
           </EntityContainer>
-        <ComplexType Name="spObtenerUsuario_Result">
-          <Property Type="Int32" Name="id" Nullable="false" />
-          <Property Type="String" Name="users" Nullable="true" />
-          <Property Type="String" Name="pass" Nullable="true" />
-          <Property Type="String" Name="correo" Nullable="true" />
-          <Property Type="String" Name="nombre" Nullable="true" />
-          <Property Type="String" Name="apeidoPaterno" Nullable="true" />
-          <Property Type="String" Name="apeidoMaterno" Nullable="true" />
-          <Property Type="Int32" Name="idNivel" Nullable="true" />
-          <Property Type="Int32" Name="idEmpresa" Nullable="true" />
-          <Property Type="String" Name="Empresa" Nullable="true" />
-        </ComplexType>
         <EntityType Name="CatEmpresas">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Empresa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
         </EntityType>
         <EntityType Name="CatEstados">
           <Key>
@@ -223,6 +230,7 @@
           <Property Name="idEmpresa" Type="Int32" />
           <Property Name="userSmbTrack" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="passSmbTrack" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
         </EntityType>
         <EntityType Name="Dispositivos">
           <Key>
@@ -251,6 +259,12 @@
           <Property Name="UbicacionDeInspeccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="NoHayDefectos" Type="Boolean" />
+          <Property Name="idChofer" Type="Int32" />
+          <Property Name="Enviado" Type="Boolean" />
+          <Property Name="Ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Pais" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TipoInspeccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="reglasEstados">
           <Key>
@@ -324,6 +338,7 @@
           <Property Name="remolque1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="remolque2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="enviarA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
         </EntityType>
         <EntityType Name="estatusActivo">
           <Key>
@@ -345,32 +360,46 @@
           <Property Name="fechaInicio" Type="DateTime" Precision="3" />
           <Property Name="fechaFin" Type="DateTime" Precision="3" />
           <Property Name="inicioSession" Type="Boolean" />
+          <Property Name="Remolque1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Remolque2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Envios" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="spObtenerReloj_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="idChofer" Nullable="true" />
+          <Property Type="String" Name="placa" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="fechaInicio" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="fechaFin" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="inicioSession" Nullable="true" />
+          <Property Type="String" Name="Remolque1" Nullable="true" />
+          <Property Type="String" Name="Remolque2" Nullable="true" />
+          <Property Type="String" Name="Envios" Nullable="true" />
+          <Property Type="Time" Name="Reloj" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spObtenerUsuario_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="users" Nullable="true" />
+          <Property Type="String" Name="pass" Nullable="true" />
+          <Property Type="String" Name="correo" Nullable="true" />
+          <Property Type="String" Name="nombre" Nullable="true" />
+          <Property Type="String" Name="apeidoPaterno" Nullable="true" />
+          <Property Type="String" Name="apeidoMaterno" Nullable="true" />
+          <Property Type="Int32" Name="idNivel" Nullable="true" />
+          <Property Type="Int32" Name="idEmpresa" Nullable="true" />
+          <Property Type="String" Name="Empresa" Nullable="true" />
+          <Property Type="String" Name="userSmbTrack" Nullable="true" />
+          <Property Type="String" Name="passSmbTrack" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="dbFlotillasCamionModelStoreContainer" CdmEntityContainer="dbFlotillasCamionEntities">
-          <FunctionImportMapping FunctionImportName="spObtenerUsuario" FunctionName="dbFlotillasCamionModel.Store.spObtenerUsuario">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="dbFlotillasCamionModel.spObtenerUsuario_Result">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="users" ColumnName="users" />
-                <ScalarProperty Name="pass" ColumnName="pass" />
-                <ScalarProperty Name="correo" ColumnName="correo" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="apeidoPaterno" ColumnName="apeidoPaterno" />
-                <ScalarProperty Name="apeidoMaterno" ColumnName="apeidoMaterno" />
-                <ScalarProperty Name="idNivel" ColumnName="idNivel" />
-                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
-                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <EntitySetMapping Name="CatEmpresas">
             <EntityTypeMapping TypeName="dbFlotillasCamionModel.CatEmpresas">
               <MappingFragment StoreEntitySet="CatEmpresas">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
                 <ScalarProperty Name="Empresa" ColumnName="Empresa" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
@@ -387,6 +416,7 @@
           <EntitySetMapping Name="CatUsuarios">
             <EntityTypeMapping TypeName="dbFlotillasCamionModel.CatUsuarios">
               <MappingFragment StoreEntitySet="CatUsuarios">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
                 <ScalarProperty Name="passSmbTrack" ColumnName="passSmbTrack" />
                 <ScalarProperty Name="userSmbTrack" ColumnName="userSmbTrack" />
                 <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
@@ -412,6 +442,12 @@
           <EntitySetMapping Name="EnvioCorreos">
             <EntityTypeMapping TypeName="dbFlotillasCamionModel.EnvioCorreos">
               <MappingFragment StoreEntitySet="EnvioCorreos">
+                <ScalarProperty Name="TipoInspeccion" ColumnName="TipoInspeccion" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Enviado" ColumnName="Enviado" />
+                <ScalarProperty Name="idChofer" ColumnName="idChofer" />
                 <ScalarProperty Name="NoHayDefectos" ColumnName="NoHayDefectos" />
                 <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
                 <ScalarProperty Name="UbicacionDeInspeccion" ColumnName="UbicacionDeInspeccion" />
@@ -502,6 +538,7 @@
           <EntitySetMapping Name="CatChoferes">
             <EntityTypeMapping TypeName="dbFlotillasCamionModel.CatChoferes">
               <MappingFragment StoreEntitySet="CatChoferes">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
                 <ScalarProperty Name="enviarA" ColumnName="enviarA" />
                 <ScalarProperty Name="remolque2" ColumnName="remolque2" />
                 <ScalarProperty Name="remolque1" ColumnName="remolque1" />
@@ -530,6 +567,9 @@
           <EntitySetMapping Name="SessionAppActiva">
             <EntityTypeMapping TypeName="dbFlotillasCamionModel.SessionAppActiva">
               <MappingFragment StoreEntitySet="SessionAppActiva">
+                <ScalarProperty Name="Envios" ColumnName="Envios" />
+                <ScalarProperty Name="Remolque2" ColumnName="Remolque2" />
+                <ScalarProperty Name="Remolque1" ColumnName="Remolque1" />
                 <ScalarProperty Name="inicioSession" ColumnName="inicioSession" />
                 <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
                 <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
@@ -539,6 +579,40 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spObtenerReloj" FunctionName="dbFlotillasCamionModel.Store.spObtenerReloj">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbFlotillasCamionModel.spObtenerReloj_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idChofer" ColumnName="idChofer" />
+                <ScalarProperty Name="placa" ColumnName="placa" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+                <ScalarProperty Name="inicioSession" ColumnName="inicioSession" />
+                <ScalarProperty Name="Remolque1" ColumnName="Remolque1" />
+                <ScalarProperty Name="Remolque2" ColumnName="Remolque2" />
+                <ScalarProperty Name="Envios" ColumnName="Envios" />
+                <ScalarProperty Name="Reloj" ColumnName="Reloj" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spObtenerUsuario" FunctionName="dbFlotillasCamionModel.Store.spObtenerUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbFlotillasCamionModel.spObtenerUsuario_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="users" ColumnName="users" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apeidoPaterno" ColumnName="apeidoPaterno" />
+                <ScalarProperty Name="apeidoMaterno" ColumnName="apeidoMaterno" />
+                <ScalarProperty Name="idNivel" ColumnName="idNivel" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="userSmbTrack" ColumnName="userSmbTrack" />
+                <ScalarProperty Name="passSmbTrack" ColumnName="passSmbTrack" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -25,5 +25,6 @@ namespace ClsDatFlotillas
         public string remolque1 { get; set; }
         public string remolque2 { get; set; }
         public string enviarA { get; set; }
+        public Nullable<bool> Activo { get; set; }
     }
 }

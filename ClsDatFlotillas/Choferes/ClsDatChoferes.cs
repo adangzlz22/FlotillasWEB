@@ -29,6 +29,7 @@ namespace ClsDatFlotillas.Choferes
                     apeidoM = y.apeidoM,
                     idEmpresa = (int)y.idEmpresa,
                     Empresa = db.CatEmpresas.Where(r => r.id == y.idEmpresa).FirstOrDefault().Empresa,
+                    placa = y.placa == null ? "":y.placa,
                 }).ToList();
 
             }
@@ -146,6 +147,7 @@ namespace ClsDatFlotillas.Choferes
                 obj = db.sessionActiva.Where(r => r.correo == user && r.idEmpresa == idEmpresa && r.idUser == objModel.idUser).FirstOrDefault();
                 if (obj == null)
                 {
+                    obj = new sessionActiva();
                     obj.idEmpresa = idEmpresa;
                     obj.accessToken = objModel.accessToken;
                     obj.idUser = objModel.idUser;
@@ -328,7 +330,7 @@ namespace ClsDatFlotillas.Choferes
                     objUsuario = new SessionAppActiva();
                     objUsuario.idChofer = objParametros.idChofer;
                     objUsuario.inicioSession = objParametros.inicioSession;
-                    objUsuario.fechaInicio = objParametros.fechaInicio;
+                    objUsuario.fechaInicio = DateTime.Now;
 
                     db.SessionAppActiva.Add(objUsuario);
                     db.SaveChanges();
@@ -484,7 +486,7 @@ namespace ClsDatFlotillas.Choferes
             SessionAppActiva objUsuario = new SessionAppActiva();
             try
             {
-                objUsuario = db.SessionAppActiva.Where(r => r.idChofer == idChofer ).FirstOrDefault();
+                objUsuario = db.SessionAppActiva.Where(r => r.idChofer == idChofer && r.inicioSession == true).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -601,6 +603,59 @@ namespace ClsDatFlotillas.Choferes
                 objClsModResultado.MsgError = ex.Message;
             }
             return objUsuario;
+        }
+        
+        public List<spObtenerReloj_Result> ObtenerReloj(ClsModTimer objModel, out ClsModResultado objClsModResultado)
+        {
+            dbFlotillasCamionEntities db = new dbFlotillasCamionEntities();
+            objClsModResultado = new ClsModResultado();
+            List<spObtenerReloj_Result> objCorreo = new List<spObtenerReloj_Result>();
+            try
+            {
+                objCorreo = db.spObtenerReloj(objModel.idChofer).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            return objCorreo;
+        }
+
+        public SessionAppActiva CerrarSession(ClsModTimer objModel, out ClsModResultado objClsModResultado)
+        {
+            dbFlotillasCamionEntities db = new dbFlotillasCamionEntities();
+            objClsModResultado = new ClsModResultado();
+            SessionAppActiva objCorreo = new SessionAppActiva();
+            try
+            {
+                objCorreo = db.SessionAppActiva.Where(r => r.idChofer == objModel.idChofer && r.inicioSession == true).FirstOrDefault();
+
+                objCorreo.inicioSession = false;
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            return objCorreo;
+        }
+        public CatChoferes ObtenerChoferNombre(ClsModTimer objModel, out ClsModResultado objClsModResultado)
+        {
+            dbFlotillasCamionEntities db = new dbFlotillasCamionEntities();
+            objClsModResultado = new ClsModResultado();
+            CatChoferes objCorreo = new CatChoferes();
+            try
+            {
+                objCorreo = db.CatChoferes.Where(r => r.id == objModel.idChofer).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            return objCorreo;
         }
     }
 }

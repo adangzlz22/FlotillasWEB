@@ -1,5 +1,8 @@
 var ChoferesControllers = function () {
-    var url = 'https://localhost:44348/Api/Choferes/';
+    //var url = 'https://localhost:44348/Api/Choferes/';
+    var url = 'http://adangonzalez-001-site4.ctempurl.com/Api/Choferes/';
+
+
 
     const tblChoferes = $('#tblChoferes');
     let dtChoferes;

@@ -1,7 +1,11 @@
 var EmpresasControllers = function () {
 
-    var url = 'https://localhost:44348/Api/Login/';
-    var vistas = 'https://localhost:44348/Vistas/';
+    //var url = 'https://localhost:44348/Api/Login/';
+
+    var url = 'http://adangonzalez-001-site4.ctempurl.com/Api/Login/';
+
+
+
 
     const cboEmpresa = $('#cboEmpresa');
     const txtNombre = $('#txtNombre');

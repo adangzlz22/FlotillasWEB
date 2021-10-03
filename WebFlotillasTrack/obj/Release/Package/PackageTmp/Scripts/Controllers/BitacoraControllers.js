@@ -1,8 +1,13 @@
 ﻿var BitacoraControllers = function () {
 
-    var url = 'https://localhost:44348/Api/Bitacora/';
-    var urlLog = 'https://localhost:44348/Api/Login/';
-    var urlChof = 'https://localhost:44348/Api/Choferes/';
+    //var url = 'https://localhost:44348/Api/Bitacora/';
+    //var urlLog = 'https://localhost:44348/Api/Login/';
+    //var urlChof = 'https://localhost:44348/Api/Choferes/';
+
+    var url = 'http://adangonzalez-001-site4.ctempurl.com/Api/Bitacora/';
+    var urlLog = 'http://adangonzalez-001-site4.ctempurl.com/Api/Login/';
+    var urlChof = 'http://adangonzalez-001-site4.ctempurl.com/Api/Choferes/';
+
 
     const tblBitacora = $('#tblBitacora');
     let dtBitacora;
@@ -218,7 +223,7 @@
                 { id: '2', title: 'DRIVE', eventColor: 'green' },
                 { id: '3', title: 'OFF', eventColor: 'black' },
                 { id: '4', title: 'SB', eventColor: 'orange' },
-                { id: '1', title: 'ON DURY' , eventColor: 'yellow'},
+                { id: '1', title: 'ON DUTY' , eventColor: 'yellow'},
               ],
               events: events
             });

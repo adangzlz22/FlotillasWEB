@@ -22,5 +22,8 @@ namespace ClsModFlotillas.Usuarios
         public int idNivel { get; set; }
         public int idEmpresa { get; set; }
         public string Empresa { get; set; }
+        public string userSmbTrack { get; set; }
+        public string passSmbTrack { get; set; }
+
     }
 }

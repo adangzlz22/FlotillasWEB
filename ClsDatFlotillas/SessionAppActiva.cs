@@ -20,5 +20,8 @@ namespace ClsDatFlotillas
         public Nullable<System.DateTime> fechaInicio { get; set; }
         public Nullable<System.DateTime> fechaFin { get; set; }
         public Nullable<bool> inicioSession { get; set; }
+        public string Remolque1 { get; set; }
+        public string Remolque2 { get; set; }
+        public string Envios { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 var EmpresasControllers = function () {
 
-    //var url = 'https://localhost:44348/Api/Login/';
+    var url = 'https://localhost:44348/Api/Login/';
 
-    var url = 'http://adangonzalez-001-site4.ctempurl.com/Api/Login/';
+    //var url = 'http://adangonzalez-001-site4.ctempurl.com/Api/Login/';
 
 
 
@@ -128,7 +128,8 @@ var EmpresasControllers = function () {
                     txtNombre.val(rowData.nombre);
                     txtApeidoPaterno.val(rowData.apeidoPaterno);
                     txtApeidoMaterno.val(rowData.apeidoMaterno);
-
+                    txtUsuariosmbTrack.val(rowData.userSmbTrack);
+                    txtContrasenasmbTrack.val(rowData.passSmbTrack);
                 });
             }
 

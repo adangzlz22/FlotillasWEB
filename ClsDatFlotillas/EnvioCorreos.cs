@@ -15,7 +15,6 @@ namespace ClsDatFlotillas
     public partial class EnvioCorreos
     {
         public int id { get; set; }
-        public int idChofer { get; set; }
         public string FrenosEstacionamiento { get; set; }
         public string FrenosMantenimiento { get; set; }
         public string DispositivosAcoplamiento { get; set; }
@@ -31,6 +30,8 @@ namespace ClsDatFlotillas
         public string UbicacionDeInspeccion { get; set; }
         public string Observaciones { get; set; }
         public Nullable<bool> NoHayDefectos { get; set; }
+        public Nullable<int> idChofer { get; set; }
+        public Nullable<bool> Enviado { get; set; }
         public string Ciudad { get; set; }
         public string Estado { get; set; }
         public string Pais { get; set; }

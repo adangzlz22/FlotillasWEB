@@ -79,6 +79,7 @@
     <Compile Include="Choferes\ClsModPosit.cs" />
     <Compile Include="Choferes\ClsModPositions.cs" />
     <Compile Include="Choferes\ClsModPositionsResult.cs" />
+    <Compile Include="Choferes\ClsModTimer.cs" />
     <Compile Include="Choferes\ClsModVehiculos.cs" />
     <Compile Include="Choferes\ClsModVehiculosPlacas.cs" />
     <Compile Include="common\ClsConexionDinamica.cs" />
