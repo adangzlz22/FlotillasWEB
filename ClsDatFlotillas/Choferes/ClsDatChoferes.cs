@@ -331,6 +331,9 @@ namespace ClsDatFlotillas.Choferes
                     objUsuario.idChofer = objParametros.idChofer;
                     objUsuario.inicioSession = objParametros.inicioSession;
                     objUsuario.fechaInicio = DateTime.Now;
+                    objUsuario.Remolque1 = objParametros.remolque1;
+                    objUsuario.Remolque2 = objParametros.remolque2;
+                    objUsuario.Envios = objParametros.envios;
 
                     db.SessionAppActiva.Add(objUsuario);
                     db.SaveChanges();
@@ -345,6 +348,9 @@ namespace ClsDatFlotillas.Choferes
                 {
 
                     objUsuario.placa = objParametros.placa;
+                    objUsuario.Remolque1 = objParametros.remolque1;
+                    objUsuario.Remolque2 = objParametros.remolque2;
+                    objUsuario.Envios = objParametros.envios;
                     db.SaveChanges();
 
                     obj = db.SessionAppActiva.Where(x => x.idChofer == objParametros.idChofer && x.inicioSession == true).Select(y => new ClsModResultAppSessionActiva
@@ -657,5 +663,22 @@ namespace ClsDatFlotillas.Choferes
 
             return objCorreo;
         }
+        public SessionAppActiva obtenerVehiculosYaAsignados(ClsModTimer objModel, out ClsModResultado objClsModResultado)
+        {
+            dbFlotillasCamionEntities db = new dbFlotillasCamionEntities();
+            objClsModResultado = new ClsModResultado();
+            SessionAppActiva objCorreo = new SessionAppActiva();
+            try
+            {
+                objCorreo = db.SessionAppActiva.Where(r => r.idChofer == objModel.idChofer && r.inicioSession == true).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            return objCorreo;
+        }
+        
     }
 }

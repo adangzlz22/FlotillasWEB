@@ -267,7 +267,7 @@ namespace WebFlotillasTrack.Controllers
                                 {
                                     idestatus = lstPosit.data.positions.Select(y => y.velocidad).FirstOrDefault() != "0" ? 2 : 1;
                                 }
-                                
+
                                 objParametros.idEstado = idestatus;
                                 objParametros.fecha = Convert.ToDateTime(FechaActual);
                                 objParametros.fechaInicio = objUsuario.fechaInicio;
@@ -551,6 +551,26 @@ namespace WebFlotillasTrack.Controllers
             ClsModResultado objModResultado = null;
 
             var objUsuarios = new ClsNegChoferes().ObtenerChoferNombre(objUsuario, out objModResultado);
+            objModResponse.Model = ClsObjectTransformation.SerializeObjectToString<object>(objUsuarios, objModRequest.Formato);
+
+            objModResponse.ObjModResultado = objModResultado;
+
+
+            return objModResponse;
+        }
+
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ActionName("obtenerVehiculosYaAsignados")]
+        public ClsModResponse obtenerVehiculosYaAsignados([FromBody] ClsModRequest objModRequest)
+        {
+            ClsModTimer objUsuario = ClsObjectTransformation.Deserialize<ClsModTimer>(objModRequest.Model, objModRequest.Formato);
+            ClsModResponse objModResponse = new ClsModResponse();
+            ClsModResultado objModResultado = null;
+
+            var objUsuarios = new ClsNegChoferes().obtenerVehiculosYaAsignados(objUsuario, out objModResultado);
             objModResponse.Model = ClsObjectTransformation.SerializeObjectToString<object>(objUsuarios, objModRequest.Formato);
 
             objModResponse.ObjModResultado = objModResultado;

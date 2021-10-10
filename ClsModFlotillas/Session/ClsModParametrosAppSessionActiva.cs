@@ -13,6 +13,8 @@ namespace ClsModFlotillas.Session
         public DateTime fechaInicio { get; set; }
         public DateTime fechaFin { get; set; }
         public bool inicioSession { get; set; }
-
+        public string remolque1 { get; set; }
+        public string remolque2 { get; set; }
+        public string envios { get; set; }
     }
 }

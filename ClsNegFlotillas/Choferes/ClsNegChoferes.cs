@@ -327,6 +327,20 @@ namespace ClsNegFlotillas.Choferes
             }
             return objUsuarios;
         }
+        public SessionAppActiva obtenerVehiculosYaAsignados(ClsModTimer objModel, out ClsModResultado objClsModResultado)
+        {
+            objClsModResultado = new ClsModResultado();
+            SessionAppActiva objUsuarios = new SessionAppActiva();
+            try
+            {
+                objUsuarios = new ClsDatChoferes().obtenerVehiculosYaAsignados(objModel, out objClsModResultado);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objUsuarios;
+        }
         
 
     }
